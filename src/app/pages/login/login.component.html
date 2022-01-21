@@ -1,1 +1,39 @@
-<p>login works!</p>
+<div class="container">
+    <mat-card>
+        <div class="row">
+            <form #postForm="ngForm" (ngSubmit)="postUserData(postForm.value)">
+                <mat-card-header>
+                    <mat-card-title>Login</mat-card-title>
+                </mat-card-header>
+
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" required ngModel name="username"/>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="text" class="form-control" required ngModel name="password">
+                </div>
+    
+                <button class="btn btn-primary" type="submit" [disabled]="!postForm.valid">Send User Data</button>
+            </form>
+        </div>
+    
+        <hr />
+    
+        <div class="row">   
+            <button class="btn btn-primary" (click)="onFetchUserData()">Load User Data</button>
+            <button class="btn btn-danger" [disabled]="loadedData.length < 1" (click)="deleteUserData()">Clear User Data</button>
+        </div>
+    
+        <div class="row">
+            <p *ngIf="loadedData.length < 1">No data available!</p>
+            <ul class="list-group" *ngIf="loadedData.length >= 1">
+                <li class="list-group-item" *ngFor="let data of loadedData">
+                    <!-- <p>{{data.username}}</p>
+                    <p>{{data.password}}</p> -->
+                </li>
+            </ul>
+        </div>
+    </mat-card>
+</div>
