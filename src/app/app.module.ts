@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 //Components
 import { AppComponent } from './app.component';
@@ -15,6 +16,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { LoginComponent } from './pages/login/login.component';
+import { EventsComponent } from './pages/events/events.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { LoginComponent } from './pages/login/login.component';
     FooterComponent,
     HomeComponent,
     SignupComponent,
-    LoginComponent
+    LoginComponent,
+    EventsComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +36,8 @@ import { LoginComponent } from './pages/login/login.component';
     FormsModule,
     MatToolbarModule,
     MatIconModule,
-    MatCardModule
+    MatCardModule,
+    MatSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent]
