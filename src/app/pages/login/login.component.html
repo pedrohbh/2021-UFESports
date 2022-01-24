@@ -1,18 +1,19 @@
-<div class="container">
-    <mat-card>  
-        <h1>Login Page</h1>
-        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-            <div class="container">
-                <mat-form-field>
-                    <input matInput placeholder="Email" formControlName="email">
-                    <!-- <mat-hint *ngIf="loginForm.controls.email.errors">Email is required</mat-hint> -->
-                </mat-form-field>
-                <mat-form-field>
-                    <input matInput type="password" placeholder="Password" formControlName="password">
-                    <!-- <mat-hint *ngIf="loginForm.controls.password.errors">Password is required</mat-hint> -->
-                </mat-form-field>
-                <button mat-flat-button color="primary" [disabled]="!loginForm.valid" type="submit">Login</button>
-            </div>
-        </form>
-    </mat-card>
-</div>
+<mat-card>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="container">
+            <mat-card-title>
+                Login
+            </mat-card-title>
+            <mat-form-field>
+                <input matInput placeholder="Email" formControlName="email">
+                <!-- <mat-hint *ngIf="loginForm.controls.email.errors">Email is required</mat-hint> -->
+            </mat-form-field>
+            
+            <mat-form-field>
+                <input matInput type="password" placeholder="Password" formControlName="password">
+                <!-- <mat-hint *ngIf="loginForm.controls.password.errors">Password is required</mat-hint> -->
+            </mat-form-field>
+            <button mat-flat-button color="primary" [disabled]="!loginForm.valid" type="submit">Login</button>
+        </div>
+    </form>
+</mat-card>
