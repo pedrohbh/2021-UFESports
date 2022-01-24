@@ -1,39 +1,18 @@
 <div class="container">
-    <mat-card>
-        <div class="row">
-            <form #postForm="ngForm" (ngSubmit)="postUserData(postForm.value)">
-                <mat-card-header>
-                    <mat-card-title>Login</mat-card-title>
-                </mat-card-header>
-
-                <div class="form-group">
-                    <label for="username">Username</label>
-                    <input type="text" class="form-control" required ngModel name="username"/>
-                </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="text" class="form-control" required ngModel name="password">
-                </div>
-    
-                <button class="btn btn-primary" type="submit" [disabled]="!postForm.valid">Send User Data</button>
-            </form>
-        </div>
-    
-        <!-- <hr />
-    
-        <div class="row">   
-            <button class="btn btn-primary" (click)="onFetchUserData()">Load User Data</button>
-            <button class="btn btn-danger" [disabled]="loadedData.length < 1" (click)="deleteUserData()">Clear User Data</button>
-        </div>
-    
-        <div class="row">
-            <p *ngIf="loadedData.length < 1">No data available!</p>
-            <ul class="list-group" *ngIf="loadedData.length >= 1">
-                <li class="list-group-item" *ngFor="let data of loadedData">
-                    <p>{{data.username}}</p>
-                    <p>{{data.password}}</p>
-                </li>
-            </ul>
-        </div> -->
+    <mat-card>  
+        <h1>Login Page</h1>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="container">
+                <mat-form-field>
+                    <input matInput placeholder="Email" formControlName="email">
+                    <mat-hint *ngIf="loginForm.controls.email.errors">Email is required</mat-hint>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput type="password" placeholder="Password" formControlName="password">
+                    <mat-hint *ngIf="loginForm.controls.password.errors">Password is required</mat-hint>
+                </mat-form-field>
+                <button mat-flat-button color="primary" [disabled]="!loginForm.valid" type="submit">Login</button>
+            </div>
+        </form>
     </mat-card>
 </div>

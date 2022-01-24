@@ -1,7 +1,8 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
-import { Data } from '@angular/router';
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { AuthenticationService } from 'src/app/shared/services/authentication.service';
+import { Router } from '@angular/router';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-login',
@@ -10,51 +11,24 @@ import { Data } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  loadedData: Data[] = []
+  loginForm: FormGroup;
 
-  constructor(private http: HttpClient) { }
+  constructor(private authService: AuthenticationService, private formBuilder: FormBuilder, private router: Router) {}
 
   ngOnInit(): void {
-  }
-
-  //POST
-  postUserData(postUserData: {username: string, password: string}){
-    this.http.post(
-      'https://angular-course-8fdf4-default-rtdb.firebaseio.com/posts.json',
-      postUserData
-    ).subscribe(responseData => {
-      console.log(responseData)
-    });
-  }
-
-  //GET
-  private fetchUserData() {
-    this.http.get('https://angular-course-8fdf4-default-rtdb.firebaseio.com/posts.json')
-    // .pipe(map((responseData: {[key: string]}): any[] => {
-    //     const datasArray = [];
-    //     for (const key in responseData) {
-    //       if(responseData.hasOwnProperty(key)) {
-    //         datasArray.push({ ...responseData[key], id: key });
-    //       }
-    //     }
-    //     return datasArray;
-    //   })
-    // )
-    .subscribe(userData => {
-      // this.loadedData = userData;
+    this.loginForm = new FormGroup({
+      email: new FormControl(null, [Validators.required, Validators.email, Validators.minLength(6)]),
+      password: new FormControl(null, [Validators.required, Validators.minLength(6)])
     })
   }
 
-  //DELETE
-  deleteUserData() {
-    this.http.delete('https://angular-course-8fdf4-default-rtdb.firebaseio.com/posts.json')
-    .subscribe(userData => {
-      this.loadedData = [];
-    })
+  onSubmit() {
+    if(this.loginForm.invalid) {
+      return;
+    }
+    this.authService.login(this.loginForm.value).pipe(
+      map(token => this.router.navigate(['events']))
+    ).subscribe()
+    
   }
-
-  onFetchUserData(){
-    this.fetchUserData();
-  }
-
 }
