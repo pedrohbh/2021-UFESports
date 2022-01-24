@@ -1,0 +1,37 @@
+{  "eventos": [
+            {
+                "id": 1,
+                "title": "Futebol na quadra",
+                "sport": "Futsal",
+                "local": "Quadra 1",
+                "data":  "01/02/2022",
+                "min": 10,
+                "max": 30,
+                "count": 0,
+                "imagem":"/assets/images/futebol.jpg"
+            },
+            {
+                "id": 2,
+                "title": "Volei na quadra",
+                "sport": "Volei",
+                "local": "Quadra 1",
+                "data":  "12/02/2022",
+                "min": 10,
+                "max": 30,
+                "count": 0,
+                "imagem":"/assets/images/volei.jpg"
+            },
+            {
+                "id": 3,
+                "title": "Basquete",
+                "sport": "Basquete",
+                "local": "Quadra 3",
+                "data":  "05/02/2022",
+                "min": 10,
+                "max": 30,
+                "count": 0,
+                "imagem":"/assets/images/basquete.jpg"
+            }
+
+    ]
+}
