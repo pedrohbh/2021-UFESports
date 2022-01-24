@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule, FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -41,8 +41,6 @@ import { EventsComponent } from './pages/events/events.component';
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
-    FormGroup,
-    FormControl,
     MatToolbarModule,
     MatIconModule,
     MatCardModule,
