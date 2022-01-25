@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map } from "rxjs/operators";
+import { map, switchMap} from "rxjs/operators";
+import { JwtHelperService } from "@auth0/angular-jwt";
+import { Observable, of } from 'rxjs';
 import { User } from '../../shared/models/user.model';
 
 
@@ -16,7 +18,7 @@ export const JWT_NAME = 'blog-token';
 })
 export class AuthenticationService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private jwtHelper: JwtHelperService) { }
 
   login(loginForm: LoginForm) {  
 
@@ -32,7 +34,24 @@ export class AuthenticationService {
     )
   }
 
+  logout() {
+    localStorage.removeItem(JWT_NAME);
+  }
+
   register(user: User) {
     return this.http.post<any>('/api/users', user);
+  }
+
+  isAuthenticated(): boolean {
+    const token = localStorage.getItem(JWT_NAME);
+    return !this.jwtHelper.isTokenExpired(token);
+  }
+
+  getUserId(): Observable<number>{
+    return of(localStorage.getItem(JWT_NAME)).pipe(
+      switchMap((jwt: string) => of(this.jwtHelper.decodeToken(jwt)).pipe(
+        map((jwt: any) => jwt.user.id)
+      )
+    ));
   }
 }
