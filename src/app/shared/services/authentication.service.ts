@@ -11,7 +11,7 @@ export interface LoginForm {
   password: string;
 };
 
-export const JWT_NAME = 'blog-token';
+export const JWT = 'token';
 
 @Injectable({
   providedIn: 'root'
@@ -28,27 +28,27 @@ export class AuthenticationService {
       ).pipe(
       map((token) => {
         console.log('token' + token.access_token);
-        localStorage.setItem(JWT_NAME, token.access_token);
+        localStorage.setItem(JWT, token.access_token);
         return token;
       })
     )
   }
 
   logout() {
-    localStorage.removeItem(JWT_NAME);
+    localStorage.removeItem(JWT);
   }
 
   register(user: User) {
-    return this.http.post<any>('/api/users', user);
+    return this.http.post<any>('https://angular-course-8fdf4-default-rtdb.firebaseio.com/users.json', user);
   }
 
   isAuthenticated(): boolean {
-    const token = localStorage.getItem(JWT_NAME);
+    const token = localStorage.getItem(JWT);
     return !this.jwtHelper.isTokenExpired(token);
   }
 
   getUserId(): Observable<number>{
-    return of(localStorage.getItem(JWT_NAME)).pipe(
+    return of(localStorage.getItem(JWT)).pipe(
       switchMap((jwt: string) => of(this.jwtHelper.decodeToken(jwt)).pipe(
         map((jwt: any) => jwt.user.id)
       )

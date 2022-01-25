@@ -11,6 +11,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { JwtHelperService, JWT_OPTIONS } from "@auth0/angular-jwt";
 
 //Components
 import { AppComponent } from './app.component';
@@ -46,7 +47,10 @@ import { EventsComponent } from './pages/events/events.component';
     MatCardModule,
     MatSidenavModule
   ],
-  providers: [],
+  providers: [
+    JwtHelperService, 
+    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
