@@ -1,7 +1,10 @@
 <mat-card>
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
         <div class="container">
-            <mat-card-title>Sign Up</mat-card-title>
+            <mat-card-header>
+                <mat-card-title>Sign Up</mat-card-title>
+            </mat-card-header>
+
             <mat-form-field>
                 <input matInput placeholder="Username" formControlName="username">
                 <mat-hint *ngIf="registerForm.get('username').errors">Username is required</mat-hint>
@@ -23,11 +26,10 @@
             </mat-form-field>
     
             <button mat-flat-button color="primary" [disabled]="registerForm.valid" type="submit">Register</button>
+
+            <h5 *ngIf="registerForm.invalid">Form contains following errors</h5>
+            <small *ngIf="registerForm.get('password').hasError('passwordInvalid')">Password is not containing a number</small>
+            <small *ngIf="registerForm.hasError('passwordsNotMatching')">Passwords not matching</small>
         </div>
     </form>
 </mat-card>
-
-<h3 *ngIf="registerForm.invalid">Form contains following errors</h3>
-<small *ngIf="registerForm.get('password').hasError('passwordInvalid')">Password is not containing a number</small>
-<br>
-<small *ngIf="registerForm.hasError('passwordsNotMatching')">Passwords not matching</small>

@@ -1,12 +1,8 @@
-.card {
+mat-card {
     max-width: 500px;
-    margin: auto;
+    margin: 0 auto;
 }
 
-.image-transition {
-    position: relative;
-      
-    /* Preserve aspet ratio */
-    min-width: 100%;
-    min-height: 100%;
-  }
+mat-card-header {
+    justify-content: center;
+}
