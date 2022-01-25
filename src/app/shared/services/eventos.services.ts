@@ -8,7 +8,7 @@ import { retry, catchError } from 'rxjs/operators';
 @Injectable()
 export class EventoService{
 
-    url = 'http://localhost:3000/eventos';
+    url = 'http://localhost:4200/eventos';
 
     // injetando o HttpClient
     constructor(private httpClient: HttpClient) { }
@@ -21,18 +21,19 @@ export class EventoService{
     }
 
     // Manipulação de erros
-        handleError(error: HttpErrorResponse) {
-            let errorMessage = '';
-            if (error.error instanceof ErrorEvent) {
+    handleError(error: HttpErrorResponse) {
+        let errorMessage = '';
+        if (error.error instanceof ErrorEvent) {
             // Erro ocorreu no lado do client
             errorMessage = error.error.message;
-            } else {
+        }
+        else {
             // Erro ocorreu no lado do servidor
             errorMessage = `Código do erro: ${error.status}, ` + `menssagem: ${error.message}`;
-            }
-            console.log(errorMessage);
-            return throwError(errorMessage);
-        };
+        }
+        console.log(errorMessage);
+        return throwError(errorMessage);
+    };
 
   
 }

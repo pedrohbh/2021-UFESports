@@ -22,7 +22,7 @@
                 <mat-hint *ngIf="registerForm.hasError('passwordsNotMatching')">Passwords not matching</mat-hint>
             </mat-form-field>
     
-            <button mat-flat-button color="primary" [disabled]="!registerForm.valid" type="submit">Register</button>
+            <button mat-flat-button color="primary" [disabled]="registerForm.valid" type="submit">Register</button>
         </div>
     </form>
 </mat-card>

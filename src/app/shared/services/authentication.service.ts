@@ -23,7 +23,7 @@ export class AuthenticationService {
   login(loginForm: LoginForm) {  
 
     return this.http.post<any>(
-      'https://angular-course-8fdf4-default-rtdb.firebaseio.com/users.json',
+      'https://ufesports-26067-default-rtdb.firebaseio.com//users.json',
       {email: loginForm.email, password: loginForm.password}
       ).pipe(
       map((token) => {
@@ -39,7 +39,7 @@ export class AuthenticationService {
   }
 
   register(user: User) {
-    return this.http.post<any>('https://angular-course-8fdf4-default-rtdb.firebaseio.com/users.json', user);
+    return this.http.post<any>('https://ufesports-26067-default-rtdb.firebaseio.com//users.json', user);
   }
 
   isAuthenticated(): boolean {

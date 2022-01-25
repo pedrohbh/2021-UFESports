@@ -58,9 +58,9 @@ export class SignupComponent implements OnInit {
   }
 
   onSubmit() {
-    if(this.registerForm.invalid){
-      return;
-    }
+    // if(this.registerForm.invalid){
+    //   return;
+    // }
     console.log(this.registerForm.value);
     this.authService.register(this.registerForm.value).pipe(
       map(user => this.router.navigate(['login']))
