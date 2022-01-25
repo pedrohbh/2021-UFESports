@@ -2,15 +2,9 @@
 	<mat-sidenav #sidenav mode="side" opened="true">
 		<nav>
 			<ul>
-				<li>
-					<a [routerLink]="['/events/myEvents']">My Events</a>
-				</li>
-				<li>
-					<a [routerLink]="['/events/otherEvents']">Other Event</a>
-				</li>
-				<li>
-					<a [routerLink]="['/events/test']">Test</a>
-				</li>
+				<li><a [routerLink]="['/events/myEvents']">My Events</a></li>
+				<li><a [routerLink]="['/events/otherEvents']">Other Event</a></li>
+				<li><a [routerLink]="['/events/test']">Test</a></li>
 			</ul>
 		</nav>
 	</mat-sidenav>
@@ -38,16 +32,7 @@
 			  </div>
 			</div>
 
-
 			<router-outlet></router-outlet>
 		</div>
 	</mat-sidenav-content>
-
 </mat-sidenav-container>
-
-
-<div class="container">
-  
-	
-  
-	

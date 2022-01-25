@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { EventoService } from '../../shared/services/eventos.services';
-
-
 import {Evento} from '../../shared/models/eventos.model'
 
 @Component({
@@ -23,5 +21,3 @@ export class EventsComponent implements OnInit {
   }
     
 }
-
-
