@@ -12,7 +12,9 @@ export class EventRoute {
   }
 
   public routes() {
-    this.eventRouter.post('/create', this.eventController.create);
+    this.eventRouter.get('/', this.eventController.findAll);
+    this.eventRouter.post('/', this.eventController.create);
+    this.eventRouter.put('/', this.eventController.update);
 
     return this.eventRouter;
   }

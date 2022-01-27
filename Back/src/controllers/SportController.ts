@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { FindAllSportsService } from "../services/Sport/FindAllSportsService";
+import { FindAllSportsPagedService } from "../services/Sport/FindAllSportsPagedService";
 import { CreateSportService } from "../services/Sport/CreateSportService";
 import { DeleteSportService } from '../services/Sport/DeleteSportService';
 
@@ -7,8 +7,16 @@ import { DeleteSportService } from '../services/Sport/DeleteSportService';
 export class SportController{
     async findAll(request: Request, response: Response) {
         try {
-            const findAllSportsService = new FindAllSportsService();
-            const sports = await findAllSportsService.execute();
+            const { page, limit } = request.query;
+
+            const getPage = page || 1;
+            const getLimit = limit || 10;
+
+            const findAllSportsService = new FindAllSportsPagedService();
+            const sports = await findAllSportsService.execute({
+                page: +getPage,
+                limit: +getLimit
+            });
 
             return response.status(200).json(sports);
         } catch (error) {
