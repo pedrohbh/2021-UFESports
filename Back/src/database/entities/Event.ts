@@ -11,7 +11,7 @@ export class Event {
     title: string;
 
     @Column('timestamptz', { name: 'date_of_the_event' })
-    dateOfTheEvent: string;
+    dateOfTheEvent: Date;
 
     @Column('varchar')
     location: string;

@@ -1,6 +1,6 @@
 import { getRepository } from "typeorm";
-import AppError from '../shared/errors/AppError';
-import { User } from '../database/entities/User';
+import { User } from "../../database/entities/User";
+import AppError from "../../shared/errors/AppError";
 
 interface Props {
     email: string;

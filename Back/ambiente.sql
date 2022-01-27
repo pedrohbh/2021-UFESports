@@ -26,7 +26,6 @@ CREATE TABLE IF NOT EXISTS "student" (
 CREATE TABLE IF NOT EXISTS "sport" (
   id SERIAL NOT NULL,
   name VARCHAR(255) NOT NULL,
-  description VARCHAR(255),
   
   CONSTRAINT pk_sport PRIMARY KEY (id)
 );
@@ -57,6 +56,51 @@ CREATE TABLE IF NOT EXISTS "event_has_students" (
   CONSTRAINT fk_event_has_students_student FOREIGN KEY (student_id) 
     REFERENCES public.student(id) MATCH SIMPLE ON UPDATE CASCADE ON DELETE CASCADE
 );
+
+INSERT INTO sport ( name ) VALUES
+    ('Arco e flecha'),
+    ('Atletismo'),
+    ('Badminton'),
+    ('Basebol'),
+    ('Basquete'),
+    ('Boxe'),
+    ('Cabo de guerra'),
+    ('Capoeira'),
+    ('Crossfit'),
+    ('Dama'),
+    ('Dominó'),
+    ('Esgrima'),
+    ('Futebol'),
+    ('Futebol americano'),
+    ('Futebol de areia'),
+    ('Futevôlei'),
+    ('Futsal'),
+    ('Ginástica artística'),
+    ('Golfe'),
+    ('Handebol'),
+    ('Jiu-jitsu'),
+    ('Judô'),
+    ('Kickboxe'),
+    ('Lançamento de dardo'),
+    ('Lançamento de martelo'),
+    ('Levantamento de peso'),
+    ('Natação'),
+    ('Paintball'),
+    ('Peteca'),
+    ('Polo aquático'),
+    ('Queda de braço'),
+    ('Queimada'),
+    ('Rugby'),
+    ('Salto em altura'),
+    ('Salto em distância'),
+    ('Sinuca'),
+    ('Slackline'),
+    ('Sumô'),
+    ('Tênis'),
+    ('Tênis de mesa'),
+    ('Voleibol'),
+    ('Voleibol de praia'),
+    ('Xadrez');
 
 GRANT ALL PRIVILEGES ON DATABASE ufes_sports to admin;
 GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO admin;

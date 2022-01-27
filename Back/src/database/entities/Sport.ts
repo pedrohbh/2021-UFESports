@@ -9,9 +9,6 @@ export class Sport {
     @Column('varchar')
     name: string;
 
-    @Column('varchar')
-    description: string;
-
     @OneToMany(type => Event, event => Event)
     events: Event[];
 }

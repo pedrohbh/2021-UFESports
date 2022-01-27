@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import { CreateUserService } from "../services/CreateUserService";
-import { LoginService } from "../services/LoginService";
+import { CreateUserService } from "../services/User/CreateUserService";
+import { LoginService } from "../services/User/LoginService";
 
 
 export class UserController{

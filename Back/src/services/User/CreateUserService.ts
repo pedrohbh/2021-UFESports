@@ -1,7 +1,7 @@
 import { getRepository } from "typeorm";
-import { Student } from '../database/entities/Student';
-import { User } from "../database/entities/User";
-import AppError from '../shared/errors/AppError';
+import { Student } from '../../database/entities/Student';
+import { User } from "../../database/entities/User";
+import AppError from '../../shared/errors/AppError';
 
 export class CreateUserService {
     async execute(student: Student): Promise<Student> {
