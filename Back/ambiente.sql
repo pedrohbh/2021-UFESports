@@ -35,8 +35,8 @@ CREATE TABLE IF NOT EXISTS "event" (
   title VARCHAR(255) NOT NULL,
   date_of_the_event TIMESTAMPTZ NOT NULL,
   location VARCHAR(255) NOT NULL,
-  minimum_number_of_participants INT,
-  maximum_number_of_participants INT,
+  minimum_number_of_participants INT NOT NULL,
+  maximum_number_of_participants INT NOT NULL,
   currently_enrolled INT,
   sport_id INT4 NOT NULL,
 

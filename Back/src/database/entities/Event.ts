@@ -23,7 +23,7 @@ export class Event {
     maximumNumberOfParticipants: number;
 
     @Column('int', { name: 'currently_enrolled' })
-    currentlyEnrolled: string;
+    currentlyEnrolled: number;
 
     @Column('int4', { name: 'sport_id' })
     sportId: number;
