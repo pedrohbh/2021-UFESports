@@ -39,7 +39,6 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
-      name: [null, [Validators.required]],
       username: [null, [Validators.required]],
       email: [null, [
         Validators.required,
@@ -51,7 +50,11 @@ export class SignupComponent implements OnInit {
         Validators.minLength(3),
         CustomValidators.passwordContainsNumber
       ]],
-      confirmPassword: [null, [Validators.required]]
+
+      confirmPassword: [null, [Validators.required]],
+      telephone:[null, null],
+      registration:[null,[Validators.required]]
+      
     },{
        validators: CustomValidators.passwordsMatch
     })
@@ -61,8 +64,17 @@ export class SignupComponent implements OnInit {
     // if(this.registerForm.invalid){
     //   return;
     // }
+    const student = { 
+       user:{
+            name: this.registerForm.value.username,
+            email:this.registerForm.value.email,
+            password:this.registerForm.value.password
+        },
+        telephone: this.registerForm.value.telephone,
+        registration: this.registerForm.value.registration
+    }
     console.log(this.registerForm.value);
-    this.authService.register(this.registerForm.value).pipe(
+    this.authService.register(student).pipe(
       map(user => this.router.navigate(['login']))
     ).subscribe()
   }

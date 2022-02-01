@@ -38,8 +38,8 @@ export class AuthenticationService {
     localStorage.removeItem(JWT);
   }
 
-  register(user: User) {
-    return this.http.post<any>('https://ufesports-26067-default-rtdb.firebaseio.com//users.json', user);
+  register(user:any) {
+    return this.http.post<any>('http://localhost:3000/users/create', user);
   }
 
   isAuthenticated(): boolean {
