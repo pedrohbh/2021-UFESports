@@ -39,44 +39,42 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
-      username: [null, [Validators.required]],
-      email: [null, [
-        Validators.required,
-        Validators.email,
-        Validators.minLength(6)
-      ]],
-      password: [null, [
-        Validators.required,
-        Validators.minLength(3),
-        CustomValidators.passwordContainsNumber
-      ]],
-
+      name: [null, [Validators.required]],
+      email: [null, [ Validators.required, Validators.email, Validators.minLength(6)]],
+      password: [null, [Validators.required, Validators.minLength(3), CustomValidators.passwordContainsNumber]],
       confirmPassword: [null, [Validators.required]],
-      telephone:[null, null],
-      registration:[null,[Validators.required]]
-      
+      telephone: [null, ],
+      registration: [null, [Validators.required]]
     },{
        validators: CustomValidators.passwordsMatch
     })
   }
 
-  onSubmit() {
-    // if(this.registerForm.invalid){
-    //   return;
-    // }
-    const student = { 
-       user:{
-            name: this.registerForm.value.username,
-            email:this.registerForm.value.email,
-            password:this.registerForm.value.password
-        },
-        telephone: this.registerForm.value.telephone,
-        registration: this.registerForm.value.registration
+  async onSubmit() {
+    if(this.registerForm.invalid){
+      this.registerForm.markAllAsTouched();
+      return;
     }
-    console.log(this.registerForm.value);
-    this.authService.register(student).pipe(
-      map(user => this.router.navigate(['login']))
-    ).subscribe()
+
+    const form = this.registerForm.value;
+
+    const student = {
+      user: {
+        name: form.name,
+        email: form.email,
+        password: form.password,
+      },
+      telephone: form.telephone,
+      registration: form.registration
+    }
+
+    try {
+      await this.authService.register(student);
+      this.router.navigate(['login']);
+    } catch (error) {
+      console.log(error);
+      alert(error.error.title + error.error.message);
+    }
   }
 
 }

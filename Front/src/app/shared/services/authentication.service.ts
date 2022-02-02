@@ -20,26 +20,16 @@ export class AuthenticationService {
 
   constructor(private http: HttpClient, private jwtHelper: JwtHelperService) { }
 
-  login(loginForm: LoginForm) {  
-
-    return this.http.post<any>(
-      'https://ufesports-26067-default-rtdb.firebaseio.com//users.json',
-      {email: loginForm.email, password: loginForm.password}
-      ).pipe(
-      map((token) => {
-        console.log('token' + token.access_token);
-        localStorage.setItem(JWT, token.access_token);
-        return token;
-      })
-    )
+  login(login: any) : Promise<any>{
+    return this.http.post<any>('http://localhost:3000/users/login', login).toPromise();
   }
 
   logout() {
     localStorage.removeItem(JWT);
   }
 
-  register(user:any) {
-    return this.http.post<any>('http://localhost:3000/users/create', user);
+  register(user: any): Promise<any> {
+    return this.http.post<any>('http://localhost:3000/users/create', user).toPromise();
   }
 
   isAuthenticated(): boolean {

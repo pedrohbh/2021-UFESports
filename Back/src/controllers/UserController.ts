@@ -22,9 +22,9 @@ export class UserController{
             const { email, password } = request.body;        
 
             const loginService = new LoginService();
-            const userLogin = await loginService.execute({ email, password });
+            const token = await loginService.execute({ email, password });
 
-            return response.status(200).json(userLogin);            
+            return response.status(200).json(token);            
         } catch (error) {
             return response.status(error.statusCode || 500).json({ message: error.message, title: error.title });
         }        

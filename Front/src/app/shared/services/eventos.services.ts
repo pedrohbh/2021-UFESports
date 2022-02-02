@@ -9,6 +9,7 @@ export class EventoService{
 
     constructor(private http: HttpClient) { }
     createEvent(event:any) {
-        return this.http.post<any>('http://localhost:3000/event/create', event);
+        return this.http.post<any>('http://localhost:3000/events', event).toPromise();
+        
       }
 }

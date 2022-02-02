@@ -1,3 +1,4 @@
+import { hash } from "bcryptjs";
 import { getRepository } from "typeorm";
 import { Student } from '../../database/entities/Student';
 import { User } from "../../database/entities/User";
@@ -16,6 +17,8 @@ export class CreateUserService {
         if(studentWithTheSameRecord){
             throw new AppError({message: "Já existe um aluno cadastrado com esta matrícula", statusCode: 400, title: "Error! Não foi possível cadastrar!"});
         }
+
+        student.user.password = await hash(student.user.password, 8);
         
         const studentCreated = await repo.create(student);
         const studentSaved = await repo.save(studentCreated);
