@@ -20,9 +20,9 @@ export class CreateeventComponent implements OnInit {
       title: [null, [Validators.required]],
       sport_id: [null, [Validators.required]],
       location: [null, [Validators.required]],
-      date: [null, [Validators.required]],
-      min: [null, [Validators.required]],
-      max: [null, [Validators.required]],
+      date_of_the_event: [null, [Validators.required]],
+      minimum_number_of_participants: [null, [Validators.required]],
+      maximum_number_of_participants: [null, [Validators.required]],
       currently_enrolled:[null, [Validators.required]]
     });
 
@@ -41,14 +41,14 @@ export class CreateeventComponent implements OnInit {
     const event = { 
       
       title: form.title,
+      dateOfTheEvent: form.date_of_the_event,
       location: form.location,
-      date: form.date,
-      min: form.min,
-      max: form.max,
-      currently_enrolled:form.currently_enrolled,
+      minimumNumberOfParticipants: form.minimum_number_of_participants,
+      maximumNumberOfParticipants: form.maximum_number_of_participants,
+      currentlyEnrolled:form. currently_enrolled,
+      sportId:this.createeventForm.value.sport_id,
       sport:{
-           name: this.createeventForm.value.sport_id,
-         
+           id: this.createeventForm.value.sport_id, 
        }  
     }
     try {
