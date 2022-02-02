@@ -40,31 +40,41 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
       name: [null, [Validators.required]],
-      username: [null, [Validators.required]],
-      email: [null, [
-        Validators.required,
-        Validators.email,
-        Validators.minLength(6)
-      ]],
-      password: [null, [
-        Validators.required,
-        Validators.minLength(3),
-        CustomValidators.passwordContainsNumber
-      ]],
-      confirmPassword: [null, [Validators.required]]
+      email: [null, [ Validators.required, Validators.email, Validators.minLength(6)]],
+      password: [null, [Validators.required, Validators.minLength(3), CustomValidators.passwordContainsNumber]],
+      confirmPassword: [null, [Validators.required]],
+      telephone: [null, ],
+      registration: [null, [Validators.required]]
     },{
        validators: CustomValidators.passwordsMatch
     })
   }
 
-  onSubmit() {
-    // if(this.registerForm.invalid){
-    //   return;
-    // }
-    console.log(this.registerForm.value);
-    this.authService.register(this.registerForm.value).pipe(
-      map(user => this.router.navigate(['login']))
-    ).subscribe()
+  async onSubmit() {
+    if(this.registerForm.invalid){
+      this.registerForm.markAllAsTouched();
+      return;
+    }
+
+    const form = this.registerForm.value;
+
+    const student = {
+      user: {
+        name: form.name,
+        email: form.email,
+        password: form.password,
+      },
+      telephone: form.telephone,
+      registration: form.registration
+    }
+
+    try {
+      await this.authService.register(student);
+      this.router.navigate(['login']);
+    } catch (error) {
+      console.log(error);
+      alert(error.error.title + error.error.message);
+    }
   }
 
 }

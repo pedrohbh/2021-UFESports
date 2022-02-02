@@ -17,18 +17,30 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
-      email: new FormControl(null, [Validators.required, Validators.email, Validators.minLength(6)]),
-      password: new FormControl(null, [Validators.required, Validators.minLength(6)])
+      email: new FormControl(null, [Validators.required, Validators.email]),
+      password: new FormControl(null, [Validators.required])
     })
   }
 
-  onSubmit() {
-    if(this.loginForm.invalid) {
+  async onSubmit() {
+    if(this.loginForm.invalid){
+      this.loginForm.markAllAsTouched();
       return;
     }
-    this.authService.login(this.loginForm.value).pipe(
-      map(token => this.router.navigate(['events']))
-    ).subscribe()
-    
+
+    const form = this.loginForm.value;
+
+    const login = {
+      email: form.email,
+      password: form.password
+    }
+
+    try {
+      await this.authService.login(login);
+      this.router.navigate(['events']);
+    } catch (error) {
+      console.log(error);
+      alert(error.error.title + error.error.message);
+    }
   }
 }

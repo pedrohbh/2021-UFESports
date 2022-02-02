@@ -2,34 +2,39 @@
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
         <div class="container">
             <mat-card-header>
-                <mat-card-title>Sign Up</mat-card-title>
+                <mat-card-title>Cadastre-se</mat-card-title>
             </mat-card-header>
 
             <mat-form-field>
-                <input matInput placeholder="Username" formControlName="username">
-                <mat-hint *ngIf="registerForm.get('username').errors">Username is required</mat-hint>
+                <input matInput placeholder="Nome" formControlName="name">
+                <mat-hint *ngIf="registerForm?.get('name')?.errors?.required && registerForm?.get('name')?.touched">Nome é obrigatório.</mat-hint>
             </mat-form-field>
-    
-            <mat-form-field>
-                <input matInput placeholder="Email" formControlName="email">
-                <mat-hint *ngIf="registerForm.get('email').errors">Email is required</mat-hint>
-            </mat-form-field>
-    
-            <mat-form-field>
-                <input matInput type="password" placeholder="Password" formControlName="password">
-                <mat-hint *ngIf="registerForm.get('password').errors">Password is required</mat-hint>
-            </mat-form-field>
-    
-            <mat-form-field>
-                <input matInput type="password" placeholder="Password COnfirmation" formControlName="confirmPassword">
-                <mat-hint *ngIf="registerForm.hasError('passwordsNotMatching')">Passwords not matching</mat-hint>
-            </mat-form-field>
-    
-            <button mat-flat-button color="primary" [disabled]="registerForm.valid" type="submit">Register</button>
 
-            <h5 *ngIf="registerForm.invalid">Form contains following errors</h5>
-            <small *ngIf="registerForm.get('password').hasError('passwordInvalid')">Password is not containing a number</small>
-            <small *ngIf="registerForm.hasError('passwordsNotMatching')">Passwords not matching</small>
+            <mat-form-field>
+                <input matInput placeholder="E-mail" formControlName="email">
+                <mat-hint *ngIf="registerForm?.get('email')?.errors?.required && registerForm?.get('email')?.touched">E-mail é obrigatório</mat-hint>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput placeholder="Matrícula" formControlName="registration">
+              <mat-hint *ngIf="registerForm?.get('registration')?.errors?.required && registerForm?.get('registration')?.touched">Matrícula é obrigatória.</mat-hint>
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput placeholder="Telefone" formControlName="telephone">
+        </mat-form-field>
+
+            <mat-form-field>
+                <input matInput type="password" placeholder="Senha" formControlName="password">
+                <mat-hint *ngIf="registerForm?.get('password')?.errors?.required && registerForm?.get('password')?.touched">Senha obrigatória</mat-hint>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput type="password" placeholder="Confirme a senha" formControlName="confirmPassword">
+                <mat-hint *ngIf="registerForm.hasError('passwordsNotMatching') && registerForm?.get('password')?.touched">Senhas diferentes!</mat-hint>
+            </mat-form-field>
+
+            <button mat-flat-button color="primary" type="submit">Cadastrar</button>
         </div>
     </form>
 </mat-card>
