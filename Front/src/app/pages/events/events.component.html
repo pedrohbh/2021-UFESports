@@ -4,34 +4,13 @@
 			<ul>
 				<li><a [routerLink]="['/events/myEvents']">My Events</a></li>
 				<li><a [routerLink]="['/events/otherEvents']">Other Event</a></li>
-				<li><a [routerLink]="['/events/test']">Test</a></li>
+				<li><a [routerLink]="['/events/teste']">Test</a></li>
 			</ul>
 		</nav>
 	</mat-sidenav>
 
 	<mat-sidenav-content>
 		<div class="main-content">
-            <div class="secao">
-				<h3 class="text-center">Eventos do Dia</h3>
-			</div>	
-			<hr />
-
-			<div class="row">
-				<div class="col-sm-4" *ngFor="let evento of eventos">
-				<img class="card-img-top" [src]="evento.imagem">
-				  <div class="card">
-					<div class="card-block">
-					  <h4 class="card-title"><b>Título: </b>{{evento.title}}</h4>
-					  <p class="card-text"><b>Esporte: </b> {{evento.sport}}</p>
-					  <p class="card-text"><b>Local: </b> {{evento.local}}</p>
-					  <p class="card-text"><b>Data: </b> {{evento.data}}</p>
-					  <p class="card-text"><b>Mínimo: </b> {{evento.min}}</p>
-					  <p class="card-text"><b>Máximo: </b> {{evento.max}}</p>
-					 </div>
-				  </div>
-			  </div>
-			</div>
-
 			<router-outlet></router-outlet>
 		</div>
 	</mat-sidenav-content>
