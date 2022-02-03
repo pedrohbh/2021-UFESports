@@ -12,4 +12,9 @@ export class EventoService{
         return this.http.post<any>('http://localhost:3000/events', event).toPromise();
         
       }
+
+     getEvent() {
+        return this.http.get<any>('http://localhost:3000/events').toPromise()
+        
+    }
 }

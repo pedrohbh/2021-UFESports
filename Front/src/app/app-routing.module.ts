@@ -5,6 +5,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { EventsComponent } from './pages/events/events.component';
 import { CreateeventComponent } from './pages/createevent/createevent.component';
+import { ShoweventComponent } from './pages/showevent/showevent.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
@@ -13,7 +14,9 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent},
   { path: 'events', component: EventsComponent,
     children: [
-    { path:'teste', component: CreateeventComponent }
+    { path:'', component: ShoweventComponent},
+    { path:'showEvent', component: ShoweventComponent},
+     {path:'createEvent', component: CreateeventComponent }
     ],
   }
 ]

@@ -1,0 +1,16 @@
+<h2 >Show Events</h2>
+<div class="container" >
+   
+        <div class="row" *ngFor="let event of events">
+
+            <div class="card">
+               <h4>Títle:{{event.title}}</h4>
+               <p>Date: {{event.dateOfTheEvent | date: "dd:MMM:yyyy" }}</p>
+               <p>Location: {{event.location}}</p>
+               <p> Maximum: {{event.maximumNumberOfParticipants}}</p>
+               <p> Minimum:{{event.minimumNumberOfParticipants}}</p>
+               <p> Currently Enrolled:{{event.currentlyEnrolled}}</p>                         
+             </div>   
+        </div>
+</div>
+

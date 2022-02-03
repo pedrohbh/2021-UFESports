@@ -26,6 +26,8 @@ export class CreateeventComponent implements OnInit {
       currently_enrolled:[null, [Validators.required]]
     });
 
+        console.log(this.eventoService.getEvent());
+      
   }
 
 
@@ -59,7 +61,7 @@ export class CreateeventComponent implements OnInit {
       alert(error.error.title + error.error.message);
     }
   
-    console.log(event);
+    
    
   }
 }
