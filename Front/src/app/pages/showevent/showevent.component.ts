@@ -16,10 +16,9 @@ export class ShoweventComponent implements OnInit {
   constructor(private eventoService :EventoService) { }
  
   ngOnInit(): void {
-    console.log(this.eventoService.getEvent());
     this.eventoService.getEvent().then((event2:any[])=>{
         this.events = event2[0];
-       
+      
     })
 
   }

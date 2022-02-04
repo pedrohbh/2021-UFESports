@@ -20,6 +20,7 @@ a{
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
 
 }
 .row{
@@ -29,10 +30,10 @@ a{
     justify-content: center;
 }
 .card{
-    flex: 1 1 21 rem;
+    flex: 1 1 21rem;
     flex-wrap: wrap;
     margin: 10px 10px;
-    background: #ffffff;
+    background: #eaeff0;
     box-shadow: 0 0 15px rgba(0,0,0,0.4);
     border-radius: 10px;
     padding:10px;
@@ -40,14 +41,36 @@ a{
 }
 
 .card h4{
-    color: rgb(53, 49, 49);
+    color: rgb(217, 237, 241);
     font-size: 18px;
+    background-color:rgb(10, 11, 56) ;
+    border-radius: 8px;
+    text-align: center;
 }
 h2{
     margin: 0px auto;
     text-align: center;
     color: rgb(53, 51, 51);
+    margin-bottom:20px;
+    margin-top:20px;
 }
+
+.card p{
+    color: rgb(7, 17, 36);
+    font-size: 15px;;
+    border-radius: 8px;
+    text-align: center;
+    font-family: 'Roboto Slab', serif;
+}
+.card button{
+    text-align: center;
+    margin: auto;
+    color: #ffffff;
+    padding: 3px;
+    border-radius: 8px;
+    display: block;
+}
+
 
 
 

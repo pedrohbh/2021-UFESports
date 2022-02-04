@@ -10,8 +10,10 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./createevent.component.scss']
 })
 export class CreateeventComponent implements OnInit {
-
+ 
+  public sports: any[];
   createeventForm: FormGroup;
+  
 
   constructor(private eventoService :EventoService, private formBuilder: FormBuilder, private router: Router) {}
   
@@ -26,7 +28,15 @@ export class CreateeventComponent implements OnInit {
       currently_enrolled:[null, [Validators.required]]
     });
 
-        console.log(this.eventoService.getEvent());
+        //console.log(this.eventoService.getEvent());
+        //console.log(this.eventoService.getSport());
+      
+      this.eventoService.getSport().then((sport2:any[])=>{  
+            this.sports= sport2[0];
+             
+      })
+      
+      
       
   }
 

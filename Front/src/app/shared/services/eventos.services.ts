@@ -17,4 +17,10 @@ export class EventoService{
         return this.http.get<any>('http://localhost:3000/events').toPromise()
         
     }
+
+    getSport() {
+        return this.http.get<any>('http://localhost:3000/sports?page=1&limit=50').toPromise()
+        
+    }
+  
 }
