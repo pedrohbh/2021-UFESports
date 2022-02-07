@@ -23,6 +23,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { EventsComponent } from './pages/events/events.component';
 import { CreateeventComponent } from './pages/createevent/createevent.component';
 import { ShoweventComponent } from './pages/showevent/showevent.component';
+import { MyeventComponent } from './pages/myevent/myevent.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { ShoweventComponent } from './pages/showevent/showevent.component';
     LoginComponent,
     EventsComponent,
     CreateeventComponent,
-    ShoweventComponent
+    ShoweventComponent,
+    MyeventComponent
   ],
   imports: [
     BrowserModule,
