@@ -1,0 +1,18 @@
+<h2 >Show Events</h2>
+<div class="container" >
+   
+        <div class="row" *ngFor="let event of events">
+
+            <div class="card">
+                
+               <h4>{{event.sport.name}}</h4>
+               <p> Local: {{event.location}}</p>
+               <p> Max:{{event.maximumNumberOfParticipants}}
+                    | Min:{{event.minimumNumberOfParticipants}}</p>
+               <p> Currently Enrolled:{{event.currentlyEnrolled}}</p> 
+               <p> {{event.dateOfTheEvent | date: "dd:MMM:yyyy" }}</p> 
+               <button mat-flat-button color="primary" type="submit">Participar</button>                       
+             </div>   
+        </div>
+</div>
+

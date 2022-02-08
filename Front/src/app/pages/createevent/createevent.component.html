@@ -1,0 +1,45 @@
+<mat-card>
+    <form  [formGroup]="createeventForm" (ngSubmit)="onSubmit()" >
+        <div class="container">
+            <mat-card-header>
+                <mat-card-title>Create Event</mat-card-title>
+            </mat-card-header>
+
+            <mat-form-field>
+                <input matInput placeholder="title" formControlName="title">
+               
+            </mat-form-field>
+
+            <select placeholder="sport" formControlName="sport_id">
+             <option *ngFor="let sport of sports" [value]="sport.id">{{sport.name}}</option>
+                    
+            </select>
+          
+            <mat-form-field>
+                <input matInput placeholder="location" formControlName="location">
+                
+            </mat-form-field>
+    
+            <mat-form-field>
+                <input matInput  type="date" placeholder="date" formControlName="date_of_the_event">
+                
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput  placeholder="minimum of participants" formControlName="minimum_number_of_participants">
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput  placeholder="maximum of participants" formControlName="maximum_number_of_participants">
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput placeholder="currently_enrolled" formControlName="currently_enrolled">       
+            </mat-form-field>
+
+            <button mat-flat-button color="primary"  type="submit">Create</button>
+
+          
+        </div>
+    </form>
+</mat-card>

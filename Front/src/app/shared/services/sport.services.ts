@@ -1,0 +1,17 @@
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { retry, catchError } from 'rxjs/operators';
+
+
+@Injectable()
+export class SportService{
+
+    constructor(private http: HttpClient) { }
+    
+
+     getSport() {
+        return this.http.get<any>('http://localhost:3000/sports').toPromise()
+        
+    }
+}
