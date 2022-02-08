@@ -1,20 +1,18 @@
 import { NextFunction, Request, Response } from "express";
 import { verify } from "jsonwebtoken";
 
-export function ensureAuthenticated(request: Request, response: Response, next: NextFunction) {
-    const authToken = request.headers.authorization;
 
-    if(!authToken) {
-        return response.status(401).json({ message: "O usuário não está autenticado!" });
+export function ensureAuthenticated(request: Request, response: Response, next: NextFunction){
+    const token = request.headers.token;
+    
+    if(!token) {
+        return response.status(401).json({message: "O usuário não esta autenticado."});
     }
 
-    const [, token] = authToken.split(" ");
-
     try {
-        verify(token, "JWT_KEY");
-
-        return next();
+        verify(token.toString(), "JWT_KEY");
+        return next();        
     } catch (error) {
-        return response.status(401).json({ message: "O usuário não está autenticado!" });
+        return response.status(401).json({message: "O usuário não esta autenticado."});
     }
 }

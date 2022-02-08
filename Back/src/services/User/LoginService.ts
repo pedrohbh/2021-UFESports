@@ -24,16 +24,19 @@ export class LoginService {
             throw new AppError({message: "Usuário ou senha incorretos!", statusCode: 401, title: "Error! Não foi acessar o sistema."});
         }
         
-        const token = sign({
-            userId: user.id,
-            email: user.email,
-            admin: user.admin
-        }, 
+        const token = sign({}, 
         "JWT_KEY", {
           subject: user.id.toString(),
-          expiresIn: "4h"  
+          expiresIn: "1d"  
         });
 
-        return token;
+        const response = {
+            userId: user.id,
+            email: user.email,
+            admin: user.admin,
+            token: token
+        }
+
+        return response;
     }
 }

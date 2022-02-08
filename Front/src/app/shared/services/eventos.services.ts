@@ -8,19 +8,16 @@ import { retry, catchError } from 'rxjs/operators';
 export class EventoService{
 
     constructor(private http: HttpClient) { }
-    createEvent(event:any) {
-        return this.http.post<any>('http://localhost:3000/events', event).toPromise();
-        
-      }
 
-     getEvent() {
-        return this.http.get<any>('http://localhost:3000/events').toPromise()
-        
+    createEvent(event:any) {
+      return this.http.post<any>('http://localhost:3000/events', event).toPromise();
+    }
+
+    getEvent() {
+      return this.http.get<any>('http://localhost:3000/events?page=1&limit=9999').toPromise()
     }
 
     getSport() {
-        return this.http.get<any>('http://localhost:3000/sports?page=1&limit=50').toPromise()
-        
+      return this.http.get<any>('http://localhost:3000/sports?page=1&limit=9999').toPromise()
     }
-  
 }

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -24,6 +24,8 @@ import { EventsComponent } from './pages/events/events.component';
 import { CreateeventComponent } from './pages/createevent/createevent.component';
 import { ShoweventComponent } from './pages/showevent/showevent.component';
 import { MyeventComponent } from './pages/myevent/myevent.component';
+import { CookieService } from 'ngx-cookie-service';
+import { Interceptor } from './shared/services/interceptor.service';
 
 @NgModule({
   declarations: [
@@ -54,8 +56,8 @@ import { MyeventComponent } from './pages/myevent/myevent.component';
     MatSidenavModule
   ],
   providers: [
-    JwtHelperService, 
-    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS }
+    CookieService,
+    { provide: HTTP_INTERCEPTORS, useClass: Interceptor, multi: true },
   ],
   bootstrap: [AppComponent]
 })

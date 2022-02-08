@@ -1,15 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, switchMap} from "rxjs/operators";
-import { JwtHelperService } from "@auth0/angular-jwt";
-import { Observable, of } from 'rxjs';
-import { User } from '../../shared/models/user.model';
-
-
-export interface LoginForm {
-  email: string;
-  password: string;
-};
+import { environment } from '../../../environments/environment';
 
 export const JWT = 'token';
 
@@ -18,30 +9,19 @@ export const JWT = 'token';
 })
 export class AuthenticationService {
 
-  constructor(private http: HttpClient, private jwtHelper: JwtHelperService) { }
+  constructor(private http: HttpClient) { }
+
+  private baseUrl = `${environment.URL_UFES_SPORT_BACK}/users`;
 
   login(login: any) : Promise<any>{
-    return this.http.post<any>('http://localhost:3000/users/login', login).toPromise();
-  }
+    console.log(environment.URL_UFES_SPORT_BACK);
 
-  logout() {
-    localStorage.removeItem(JWT);
+    console.log(this.baseUrl);
+
+    return this.http.post<any>(`${this.baseUrl}/login`, login).toPromise();
   }
 
   register(user: any): Promise<any> {
-    return this.http.post<any>('http://localhost:3000/users/create', user).toPromise();
-  }
-
-  isAuthenticated(): boolean {
-    const token = localStorage.getItem(JWT);
-    return !this.jwtHelper.isTokenExpired(token);
-  }
-
-  getUserId(): Observable<number>{
-    return of(localStorage.getItem(JWT)).pipe(
-      switchMap((jwt: string) => of(this.jwtHelper.decodeToken(jwt)).pipe(
-        map((jwt: any) => jwt.user.id)
-      )
-    ));
+    return this.http.post<any>(`${this.baseUrl}/create`, user).toPromise();
   }
 }

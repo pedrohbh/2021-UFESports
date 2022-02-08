@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { AuthenticationService } from 'src/app/shared/services/authentication.service';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,10 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
 
-  constructor(private authService: AuthenticationService, private formBuilder: FormBuilder, private router: Router) {}
+  constructor(private authService: AuthenticationService,
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private cookieService: CookieService) {}
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
@@ -35,7 +39,11 @@ export class LoginComponent implements OnInit {
     }
 
     try {
-      await this.authService.login(login);
+      const responseLogin = await this.authService.login(login);
+      this.cookieService.set('userId', responseLogin.userId);
+      this.cookieService.set('email', responseLogin.email);
+      this.cookieService.set('admin', responseLogin.admin);
+      this.cookieService.set('token', responseLogin.token);
       this.router.navigate(['events']);
     } catch (error) {
       console.log(error);
