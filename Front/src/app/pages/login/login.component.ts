@@ -41,6 +41,7 @@ export class LoginComponent implements OnInit {
     try {
       const responseLogin = await this.authService.login(login);
       this.cookieService.set('userId', responseLogin.userId);
+      this.cookieService.set('studentId', responseLogin.studentId);
       this.cookieService.set('email', responseLogin.email);
       this.cookieService.set('admin', responseLogin.admin);
       this.cookieService.set('token', responseLogin.token);

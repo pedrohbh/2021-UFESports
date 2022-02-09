@@ -1,1 +1,22 @@
-<p>myevent works!</p>
+<h2 >Eventos que me inscrevi</h2>
+<div class="container">
+  <div *ngIf="events.length > 0">
+        <div class="row" *ngFor="let event of events">
+
+            <div class="card">
+
+               <h4>{{event.title}} - Modalidade: {{event.sport.name}}</h4>
+               <p> Local: {{event.location}}</p>
+               <p> Máximo de participantes: {{event.maximumNumberOfParticipants}}
+                    | Mínimo de participantes: {{event.minimumNumberOfParticipants}}</p>
+               <p> Participantes inscritos:{{event.currentlyEnrolled}}</p>
+               <p> {{event.dateOfTheEvent | date: "dd/MM/yyyy" }}</p>
+               <button mat-flat-button color="warn" type="button" (click)="unsubscrible(event)">Cancelar inscrição</button>
+             </div>
+        </div>
+  </div>
+  <div *ngIf="events.length == 0">
+    :( Você ainda não se inscreveu em nenhum evento!
+  </div>
+</div>
+

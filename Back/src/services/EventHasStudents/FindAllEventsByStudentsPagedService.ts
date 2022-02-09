@@ -16,6 +16,7 @@ export class FindAllEventsByStudentPagedService {
         
         const [ eventHasStudents, count ] = await repo.createQueryBuilder("eventHasStudents")
             .innerJoinAndSelect('eventHasStudents.event', 'events')
+            .innerJoinAndSelect('events.sport', 'sports')
             .where('student_id = :studentId', { studentId })
             .orderBy('events.dateOfTheEvent', 'ASC')
             .limit(limit)
