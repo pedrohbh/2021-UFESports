@@ -1,12 +1,11 @@
-import { getRepository } from "typeorm";
 import { Sport } from "../../database/entities/Sport";
+import { SportRepository } from "../../respositories/Sport/SportRepository";
 
 export class CreateSportService {
     async execute(sport: Sport): Promise<Sport> {
-        const repo = getRepository(Sport);
+        const sportRespository = new SportRepository();
         
-        const sportCreated = await repo.create(sport);
-        const sportSaved = await repo.save(sportCreated);
+        const sportSaved = await sportRespository.create(sport);
 
         return sportSaved;
     }
