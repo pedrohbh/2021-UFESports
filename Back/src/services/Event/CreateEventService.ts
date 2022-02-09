@@ -1,13 +1,13 @@
-import { getRepository } from "typeorm";
 import { Event } from "../../database/entities/Event";
+import { EventRepository } from "../../respositories/Event/EventRepository";
+
 
 export class CreateEventService {
     async execute(event: Event): Promise<Event> {
-        const repo = getRepository(Event);
-        
+        const eventRespository = new EventRepository();
         event.currentlyEnrolled = 0;
-        const eventCreated = await repo.create(event);
-        const eventSaved = await repo.save(eventCreated);
+        
+        const eventSaved = await eventRespository.create(event);
 
         return eventSaved;
     }

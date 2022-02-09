@@ -1,5 +1,5 @@
-import { getRepository } from "typeorm";
 import { Event } from "../../database/entities/Event";
+import { EventRepository } from "../../respositories/Event/EventRepository"
 
 interface Props {
     page?: number,
@@ -8,17 +8,11 @@ interface Props {
 
 export class FindAllUpcomingEventsPagedService {
     async execute({ page, limit }: Props): Promise<[Event[], undefined | number ]> {
-        const repo = getRepository(Event);
-
-        const offset = (page - 1) * limit;
         
-        const [ events, count ] = await repo.createQueryBuilder("events")
-            .innerJoinAndSelect('events.sport', 'sports')
-            .where('events.date_of_the_event >= :dateOfTheEvent', { dateOfTheEvent: new Date() })
-            .orderBy('events.dateOfTheEvent', 'ASC')
-            .limit(limit)
-            .offset(offset)
-            .getManyAndCount();
+        const offset = (page - 1) * limit;
+
+        const eventRespository = new EventRepository();
+        const [ events, count ] = await eventRespository.findAll(limit, offset);
 
         return [ events, count ];
     }
