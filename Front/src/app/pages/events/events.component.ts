@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { EventoService } from '../../shared/services/eventos.services';
+import { CookieService } from 'ngx-cookie-service';
+import { EventoService } from '../../shared/services/eventos.service';
 
 
 @Component({
@@ -9,13 +10,20 @@ import { EventoService } from '../../shared/services/eventos.services';
   providers:[EventoService]
 })
 export class EventsComponent implements OnInit {
-  
 
+  admin: boolean = false;
 
-
+  constructor(private cookieService: CookieService) {}
 
   ngOnInit(): void {
-   
+    this.admin = this.stringToBoolean(this.cookieService.get('admin'));
   }
-    
+
+  stringToBoolean(string: string): boolean {
+    if(string ==='true'){
+      return true;
+    }
+    return false;
+  }
+
 }

@@ -32,13 +32,13 @@ export class LoginService {
           expiresIn: "1d"  
         });
 
-        const student = await repoStudent.findOne({ where: { id: user.id } });
+        const student = await repoStudent.findOne({ where: { userId: user.id } });
 
         const response = {
             userId: user.id,
             studentId: student.id,
             email: user.email,
-            admin: user.admin,
+            admin: user.admin.toString(),
             token: token
         }
 

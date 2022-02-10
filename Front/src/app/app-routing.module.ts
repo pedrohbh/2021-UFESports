@@ -7,6 +7,7 @@ import { EventsComponent } from './pages/events/events.component';
 import { CreateeventComponent } from './pages/createevent/createevent.component';
 import { ShoweventComponent } from './pages/showevent/showevent.component';
 import { MyeventComponent } from './pages/myevent/myevent.component';
+import { ConfigComponent } from './pages/config/config.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent},
@@ -14,11 +15,12 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: 'signup', component: SignupComponent},
   { path: 'events', component: EventsComponent,
-    children: [
+  children: [
     { path:'', component: ShoweventComponent},
     { path:'showEvent', component: ShoweventComponent},
     { path:'myEvents', component: MyeventComponent},
-     {path:'createEvent', component: CreateeventComponent }
+    { path:'createEvent', component: CreateeventComponent },
+    { path: 'config', component: ConfigComponent},
     ],
   }
 ]

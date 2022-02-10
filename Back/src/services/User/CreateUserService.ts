@@ -18,6 +18,7 @@ export class CreateUserService {
             throw new AppError({message: "Já existe um aluno cadastrado com esta matrícula", statusCode: 400, title: "Error! Não foi possível cadastrar!"});
         }
 
+        student.user.admin = false;
         student.user.password = await hash(student.user.password, 8);
         
         const studentCreated = await repo.create(student);

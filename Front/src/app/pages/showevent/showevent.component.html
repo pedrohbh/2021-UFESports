@@ -11,8 +11,9 @@
                     | Mínimo de participantes: {{event.minimumNumberOfParticipants}}</p>
                <p> Participantes inscritos:{{event.currentlyEnrolled}}</p>
                <p> {{event.dateOfTheEvent | date: "dd/MM/yyyy" }}</p>
-               <button [disabled]="verifySubscrible(event.id)" mat-flat-button color="primary" type="button" (click)="subscrible(event)">Participar</button>
-               <button [disabled]="!verifySubscrible(event.id)" mat-flat-button color="warn" type="button" (click)="unsubscrible(event)">Cancelar inscrição</button>
+               <button *ngIf="!this.admin" [disabled]="verifySubscrible(event.id)" mat-flat-button color="primary" type="button" (click)="subscrible(event)">Participar</button>
+               <button *ngIf="!this.admin" [disabled]="!verifySubscrible(event.id)" mat-flat-button color="warn" type="button" (click)="unsubscrible(event)">Cancelar inscrição</button>
+               <button *ngIf="this.admin" mat-flat-button color="warn" type="button" (click)="deleteEvent(event)">Excluir Evento</button>
              </div>
         </div>
   </div>

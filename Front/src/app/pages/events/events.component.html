@@ -2,9 +2,10 @@
 	<mat-sidenav #sidenav mode="side" opened="true">
 		<nav>
 			<ul>
-				<li><a [routerLink]="['/events/myEvents']">Meus Eventos</a></li>
+				<li *ngIf="!this.admin"><a [routerLink]="['/events/myEvents']">Meus Eventos</a></li>
 				<li><a [routerLink]="['/events/showEvent']">Próximos Eventos</a></li>
 				<li><a [routerLink]="['/events/createEvent']">Criar Evento</a></li>
+        <li *ngIf="this.admin"><a [routerLink]="['/events/config']">Configurações</a></li>
 			</ul>
 		</nav>
 	</mat-sidenav>

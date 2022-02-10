@@ -13,7 +13,9 @@ export class FindAllStudentsPagedService {
         const offset = (page - 1) * limit;
         
         const [ students, count ] = await repo.createQueryBuilder("students")
-            .orderBy('students.name', 'ASC')
+            .innerJoinAndSelect('students.user', 'users')
+            .where('users.admin = :admin', { admin: false })
+            .orderBy('users.name', 'ASC')
             .limit(limit)
             .offset(offset)
             .getManyAndCount();
