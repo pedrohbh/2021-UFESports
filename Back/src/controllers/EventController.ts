@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { CreateEventService } from "../services/Event/CreateEventService";
+import { DeleteEventService } from "../services/Event/DeleteEventService";
 import { FindAllUpcomingEventsPagedService } from '../services/Event/FindAllUpcomingEventsPagedService';
 import { UpdateEventService } from "../services/Event/UpdateEventService";
 import { FindEventByIdService } from "../services/Event/FindEventByIdService";
@@ -63,5 +64,18 @@ export class EventController{
         } catch (error) {
             return response.status(error.statusCode || 500).json({ message: error.message, title: error.title });
         }        
+    }
+
+    public async delete(request: Request, response: Response) {
+        try {
+            const { id } = request.params;
+
+            const deleteEventService = new DeleteEventService();
+            await deleteEventService.execute(+id);
+
+            return response.status(200).send();
+        } catch (err) {
+            return response.status(err.statusCode || 500).json({ message: err.message, title: err.title });
+        }
     }
 }

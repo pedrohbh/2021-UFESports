@@ -1,0 +1,33 @@
+<div id="sports" class="container">
+  <h2>Esportes Cadastrados</h2>
+  <button mat-flat-button  type="button" color="primary" (click)="handleNewSport()">Novo Esporte</button>
+  <table>
+    <tr>
+      <th>Nome</th>
+      <th>Excluir</th>
+    </tr>
+
+    <tr *ngIf="newSport">
+
+      <td>
+        <form  [formGroup]="sportForm">
+          <mat-form-field>
+            <input matInput placeholder="Nome do novo Esporte" formControlName="name">
+            <mat-hint *ngIf="sportForm?.get('name')?.errors?.required && sportForm?.get('name')?.touched">Nome é obrigatório</mat-hint>
+          </mat-form-field>
+        </form>
+      </td>
+
+      <td>
+        <button mat-flat-button  type="button" color="primary" (click)="save()">Salvar</button>
+        <button mat-flat-button  type="button" color="warn" (click)="cancelNewSport()">Cancelar novo esporte</button>
+      </td>
+    </tr>
+
+    <tr *ngFor="let sport of sports">
+      <td>{{sport.name}}</td>
+      <td (click)="deleteSport(sport.id)" style="cursor: pointer;"><mat-icon>delete</mat-icon></td>
+    </tr>
+  </table>
+</div>
+

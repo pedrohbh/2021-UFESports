@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
-import { EventoService } from 'src/app/shared/services/eventos.services';
+import { EventoService } from 'src/app/shared/services/eventos.service';
 import { Router } from '@angular/router';
 import { map } from 'rxjs/operators';
 

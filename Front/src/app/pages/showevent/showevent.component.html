@@ -1,9 +1,9 @@
 <h2 >Próximos Eventos</h2>
 <div class="container" >
-
+  <div *ngIf="events.length > 0">
         <div class="row" *ngFor="let event of events">
 
-            <div class="card">
+            <div class="card" (change)="verifySubscrible(event.id)">
 
                <h4>{{event.title}} - Modalidade: {{event.sport.name}}</h4>
                <p> Local: {{event.location}}</p>
@@ -11,8 +11,14 @@
                     | Mínimo de participantes: {{event.minimumNumberOfParticipants}}</p>
                <p> Participantes inscritos:{{event.currentlyEnrolled}}</p>
                <p> {{event.dateOfTheEvent | date: "dd/MM/yyyy" }}</p>
-               <button mat-flat-button color="primary" type="submit" (click)="subscrible()">Participar</button>
+               <button *ngIf="!this.admin" [disabled]="verifySubscrible(event.id)" mat-flat-button color="primary" type="button" (click)="subscrible(event)">Participar</button>
+               <button *ngIf="!this.admin" [disabled]="!verifySubscrible(event.id)" mat-flat-button color="warn" type="button" (click)="unsubscrible(event)">Cancelar inscrição</button>
+               <button *ngIf="this.admin" mat-flat-button color="warn" type="button" (click)="deleteEvent(event)">Excluir Evento</button>
              </div>
         </div>
+  </div>
+  <div *ngIf="events.length == 0">
+    Nenhum próximo evento cadastrado até o momento.
+  </div>
 </div>
 

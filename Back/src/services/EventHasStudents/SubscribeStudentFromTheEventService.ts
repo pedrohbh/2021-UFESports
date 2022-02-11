@@ -23,7 +23,10 @@ export class SubscribeStudentFromTheEventService {
         if(!eventSaved) {
             throw new AppError({message: "Evento não encontrado!", statusCode: 400, title: "Error! Não foi possível apagar!"});
         }
-
+        let subscribleEvent = await repo.findOne({where: {eventId, studentId}});
+        if(subscribleEvent) {
+            throw new AppError({message: "Desculpe você já está inscrito neste evento!", statusCode: 400, title: "Error ao se inscrever! "});
+        }
         if(eventSaved.currentlyEnrolled >= eventSaved.maximumNumberOfParticipants) {
             throw new AppError({message: "Infelizmente este evento já está com o número máximo de alunos!", statusCode: 400, title: "Error! Não foi possível se inscrever!"});
         }

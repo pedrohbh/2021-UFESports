@@ -28,7 +28,7 @@ export class EventHasStudentsController{
 
     async subscribe(request: Request, response: Response) {
         try {
-            const { studentid, eventid } = request.query;       
+            const { studentid, eventid } = request.body;       
 
             const subscribeStudentFromTheEventService = new SubscribeStudentFromTheEventService();
             await subscribeStudentFromTheEventService.execute({
@@ -44,7 +44,7 @@ export class EventHasStudentsController{
 
     public async unsubscribe(request: Request, response: Response) {
         try {
-            const { studentid, eventid } = request.query;       
+            const { studentid, eventid } = request.body;       
 
             const unsubscribeStudentFromTheEventService = new UnsubscribeStudentFromTheEventService();
             await unsubscribeStudentFromTheEventService.execute({

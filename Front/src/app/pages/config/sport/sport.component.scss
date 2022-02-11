@@ -1,0 +1,31 @@
+#sports {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  margin-left: 100px;
+  margin-top: 25px;
+}
+
+#sports td, #sports th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#sports tr:nth-child(even){background-color: #f2f2f2;}
+
+#sports tr:hover {background-color: #ddd;}
+
+#sports th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: rgb(30,30,60);
+  color: white;
+}
+
+h2{
+  margin: 0px auto;
+  color: rgb(53, 51, 51);
+  margin-bottom:20px;
+  margin-top:20px;
+}

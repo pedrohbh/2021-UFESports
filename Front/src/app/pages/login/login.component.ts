@@ -40,14 +40,20 @@ export class LoginComponent implements OnInit {
 
     try {
       const responseLogin = await this.authService.login(login);
-      this.cookieService.set('userId', responseLogin.userId);
-      this.cookieService.set('email', responseLogin.email);
-      this.cookieService.set('admin', responseLogin.admin);
-      this.cookieService.set('token', responseLogin.token);
+      this.preencheCookies(responseLogin);
       this.router.navigate(['events']);
     } catch (error) {
       console.log(error);
       alert(error.error.title + error.error.message);
     }
+  }
+
+  preencheCookies(responseLogin){
+    this.cookieService.deleteAll();
+    this.cookieService.set('userId', responseLogin.userId);
+    this.cookieService.set('studentId', responseLogin.studentId);
+    this.cookieService.set('email', responseLogin.email);
+    this.cookieService.set('admin', responseLogin.admin);
+    this.cookieService.set('token', responseLogin.token);
   }
 }

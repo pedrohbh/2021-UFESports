@@ -12,7 +12,7 @@ export class DeleteStudentService {
             throw new AppError({message: "Estudante não encontrado!", statusCode: 400, title: "Error! Não foi possível apagar!"});
         }
 
-        repo.delete(id);
+        await repo.delete(id);
 
         return ;
     }

@@ -26,6 +26,9 @@ import { ShoweventComponent } from './pages/showevent/showevent.component';
 import { MyeventComponent } from './pages/myevent/myevent.component';
 import { CookieService } from 'ngx-cookie-service';
 import { Interceptor } from './shared/services/interceptor.service';
+import { ConfigComponent } from './pages/config/config.component';
+import { StudentComponent } from './pages/config/student/student.component';
+import { SportComponent } from './pages/config/sport/sport.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +41,10 @@ import { Interceptor } from './shared/services/interceptor.service';
     EventsComponent,
     CreateeventComponent,
     ShoweventComponent,
-    MyeventComponent
+    MyeventComponent,
+    ConfigComponent,
+    StudentComponent,
+    SportComponent
   ],
   imports: [
     BrowserModule,

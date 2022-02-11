@@ -1,0 +1,20 @@
+<div id="students" class="container">
+  <h2>Estudantes Cadastrados</h2>
+  <table>
+    <tr>
+      <th>Nome</th>
+      <th>E-mail</th>
+      <th>Matrícula</th>
+      <th>Telefone</th>
+      <th>Excluir</th>
+    </tr>
+    <tr *ngFor="let student of students">
+      <td>{{student.user.name}}</td>
+      <td>{{student.user.email}}</td>
+      <td>{{student.registration}}</td>
+      <td>{{student.telephone}}</td>
+      <td (click)="deleteStudent(student.id)" style="cursor: pointer;"><mat-icon>delete</mat-icon></td>
+    </tr>
+  </table>
+</div>
+
