@@ -2,9 +2,24 @@ import { Request, Response } from "express";
 import { CreateEventService } from "../services/Event/CreateEventService";
 import { DeleteEventService } from "../services/Event/DeleteEventService";
 import { FindAllUpcomingEventsPagedService } from '../services/Event/FindAllUpcomingEventsPagedService';
-
+import { UpdateEventService } from "../services/Event/UpdateEventService";
+import { FindEventByIdService } from "../services/Event/FindEventByIdService";
 
 export class EventController{
+    async findById(request: Request, response: Response) {
+        try {
+            const { id } = request.params;
+
+            const findEventByIdService = new FindEventByIdService();
+            const event = await findEventByIdService.execute(+id);
+
+            return response.status(200).json(event);
+        } catch (err) {
+            return response.status(err.statusCode || 500).json({ message: err.message, title: err.title });
+        }     
+    }
+
+
     async findAll(request: Request, response: Response) {
         try {
             const { page, limit } = request.query;
@@ -40,9 +55,10 @@ export class EventController{
     async update(request: Request, response: Response) {
         try {
             const event = request.body;        
+            const { id } = request.params;
 
-            const createEventService = new CreateEventService();
-            const eventUpdated = await createEventService.execute(event);
+            const updateEventService = new UpdateEventService();
+            const eventUpdated = await updateEventService.execute(+id, event);
 
             return response.status(200).json(eventUpdated);            
         } catch (error) {
