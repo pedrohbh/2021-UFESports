@@ -1,7 +1,7 @@
 <h2 >Eventos que me inscrevi</h2>
 <div class="container">
   <div *ngIf="events.length > 0">
-        <div class="row" *ngFor="let event of events">
+        <div class="row" *ngFor="let event of events; index as i">
 
             <div class="card">
 
@@ -11,6 +11,7 @@
                     | Mínimo de participantes: {{event.minimumNumberOfParticipants}}</p>
                <p> Participantes inscritos:{{event.currentlyEnrolled}}</p>
                <p> {{event.dateOfTheEvent | date: "dd/MM/yyyy" }}</p>
+               <p class="descri"> descrição:{{ descricaoesport[i]}} </p>
                <button mat-flat-button color="warn" type="button" (click)="unsubscrible(event)">Cancelar inscrição</button>
              </div>
         </div>

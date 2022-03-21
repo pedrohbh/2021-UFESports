@@ -4,6 +4,8 @@ import { AuthenticationService } from 'src/app/shared/services/authentication.se
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 
+
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -12,17 +14,19 @@ import { CookieService } from 'ngx-cookie-service';
 export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
-
-  constructor(private authService: AuthenticationService,
+  
+    constructor(private authService: AuthenticationService,
     private formBuilder: FormBuilder,
     private router: Router,
     private cookieService: CookieService) {}
-
+  
   ngOnInit(): void {
     this.loginForm = new FormGroup({
       email: new FormControl(null, [Validators.required, Validators.email]),
       password: new FormControl(null, [Validators.required])
     })
+
+    
   }
 
   async onSubmit() {
