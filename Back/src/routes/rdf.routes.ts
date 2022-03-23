@@ -14,6 +14,7 @@ export class RDFRoute {
   public routes() {
     this.rdfRouter.get('/events', this.rdfController.findAll);
     this.rdfRouter.get('/events/:id', this.rdfController.findById);
+    this.rdfRouter.get('/events/sport/:id', this.rdfController.findBySport);
 
     return this.rdfRouter;
   }

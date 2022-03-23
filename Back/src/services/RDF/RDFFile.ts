@@ -17,15 +17,17 @@ export function getRDFFile(events: Event[])
 
     const seType = rdf.sym(`${seNS}SportsEvent`);
     const seMaximumCapacity = rdf.sym(`${seNS}maximumAttendeeCapacity`);
+    const seSport = rdf.sym(`${seNS}sport`);
     
     events.forEach((event) =>{
         const eventResource = rdf.sym(`${myNS}${event.id}`);
+        const sportNS = rdf.sym(`${myNS}sport/${event.sport.id}`);
         modelRdf.add(eventResource, RDF('type'), seType);
         modelRdf.add(eventResource, RDFS('label'), event.title);
         modelRdf.add(eventResource, SE('name'), event.title);
-        modelRdf.add(eventResource, SE('sport'), event.sport.name);
         modelRdf.add(eventResource, SE('location'), event.location);
         
+        modelRdf.add(eventResource, SE('sport'), rdf.lit(`${event.sport.name}`, '', sportNS));
         modelRdf.add(eventResource, seMaximumCapacity, rdf.lit(`${event.maximumNumberOfParticipants}`, '', XSD('integer')));
     });
 

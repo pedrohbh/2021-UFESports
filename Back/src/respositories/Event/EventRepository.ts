@@ -26,6 +26,18 @@ export class EventRepository implements IEventRespository{
 
     }
 
+    public async findBySport (limit: number, offset: number, sport: number) : Promise<[Event[], number]> {
+        
+        return await this.repo.createQueryBuilder("events")
+                            .innerJoinAndSelect('events.sport', 'sports')
+                            .where('events.date_of_the_event >= :dateOfTheEvent AND events.sport_id = :sport_id', { dateOfTheEvent: new Date(), sport_id: sport })
+                            .orderBy('events.dateOfTheEvent', 'ASC')
+                            .limit(limit)
+                            .offset(offset)
+                            .getManyAndCount();
+
+    }
+
     public async create(event: Event) : Promise<Event> {
 
         const eventCreated = await this.repo.create(event);
