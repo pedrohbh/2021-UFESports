@@ -22,6 +22,8 @@ export class MyeventComponent implements OnInit {
   ngOnInit(): void {
     this.studentId = parseFloat(this.cookieService.get('studentId'));
     this.listEvents();
+
+
    
   }
 
