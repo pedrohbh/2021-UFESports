@@ -6,13 +6,14 @@ import { CookieService } from 'ngx-cookie-service';
 
 
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
+  private sparkqlData = null;
   loginForm: FormGroup;
   
     constructor(private authService: AuthenticationService,
@@ -51,6 +52,7 @@ export class LoginComponent implements OnInit {
       alert(error.error.title + error.error.message);
     }
   }
+  
 
   preencheCookies(responseLogin){
     this.cookieService.deleteAll();

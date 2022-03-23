@@ -38,4 +38,21 @@
 
         </div>
     </form>
+   
 </mat-card>
+
+<mat-card style="margin-top: 20px;">
+    <div class="container">
+            <div class="descricao">
+                <h4>Descrição Esporte- Dbpedia</h4>
+                <form  [formGroup]="createeventForm2">
+                    <select placeholder="Idioma" formControlName="idioma">
+                        <option >en</option>
+                        <option >pt</option>
+                    </select>
+                </form>
+                <p class="descri" style="margin-top: 20px;">{{this.descricaoesport}}</p>
+            </div>
+    </div>
+</mat-card>
+        

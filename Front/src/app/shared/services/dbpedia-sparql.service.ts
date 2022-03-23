@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams,HttpHeaders } from '@angular/common/http';
 import { UrlParamEncodingService } from './url-param-encoding.service';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators'
+
 
 @Injectable({
   providedIn: 'root'
@@ -13,63 +15,24 @@ export class DbpediaSparqlService {
   /**
    * get SparQL DBPedia Results
    * */
-
+  nomeSport:Array<string>=[];
+  indice:number;
   nomeesporte(id:string): string {
-    let valor:string;
-    valor="Baseball" // vai ser valor padrao, por enquantoo, mas mudar depois
-    if(id=="5"){
-      valor = "Basketball";
-    }
-    if(id=="4"){
-      valor = "Baseball";
-    }
-    if (id=="16" ){
-       valor ="Footvolley"
-    }
-    if(id=="20"){
-      valor = "American_handball";
-    }
-    if(id=="19"){
-      valor = "Golf";
-    }
-    if (id=="18" ){
-       valor ="Artistic_gymnastics"
-   }
-   if(id=="42"){
-     valor = "Beach_volleyball";
-   }
-   if(id=="6"){
-     valor = "Boxing";
-   }
-   if (id=="3" ){
-      valor ="Badminton"
-   }
-   if (id=="2" ){
-    valor ="Sport_of_athletics"
-   }
-   if (id=="27" ){
-    valor ="Swimming_(sport)"
-   }
-   if (id == "8" ){
-    valor ="Capoeira"
-  } 
-  if (id == "13" ){
-    valor ="Football"
-   }
-  if (id=="17" ){
-     valor ="Futsal"
-  }
-  if (id=="41" ){
-    valor ="Volleyball"
-  }
+   
+   this.nomeSport = ["Archery", "Sport_of_athletics","Badminton","Baseball","Basketball","Boxing","Tug_of_war","Capoeira","CrossFit","Draughts","Domino(card_game)","Fencing","Association_football","American_football","Beach_soccer","Footvolley","Futsal","Artistic_gymnastics", "Golf","American_handball","Brazilian_jiu-jitsu", 
+   "Judo","Kickboxing", "Javelin_throw","Hammer_throw", "Powerlifting", "Swimming", "Paintball","Peteca", "Water_polo", "Arm_wrestling", "Dodgeball", "Rugby_football", "High_jump", "Long_jump","Snooker","Slacklining", "Sumo","Tennis", "Table_tennis","Dodgeball","Beach_volleyball", "Chess"]
     
-     return valor;
+   this.indice = parseInt(id)-1;
+   return this.nomeSport[this.indice];
+
   }
+
   public getSparQL(query: string): Observable<any> {
     return this.http.get<any>(
-      'https://dbpedia.org/sparql',
+         'https://dbpedia.org/sparql',      
       {
-        params: new HttpParams({
+          headers: new HttpHeaders({'Content-type': 'application/json'}),
+          params: new HttpParams({
           fromObject: {
           "default-graph-uri": "http://dbpedia.org",
           "query": query,

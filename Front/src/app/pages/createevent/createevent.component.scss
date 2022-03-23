@@ -16,3 +16,11 @@ select{
     justify-content: center;
     flex-direction: center;
 }
+
+.descri{
+    width: 400px;
+    height: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    direction: ltr;
+  }
