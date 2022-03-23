@@ -19,8 +19,8 @@ export class DbpediaSparqlService {
   indice:number;
   nomeesporte(id:string): string {
    
-   this.nomeSport = ["Archery", "Sport_of_athletics","Badminton","Baseball","Basketball","Boxing","Tug_of_war","Capoeira","CrossFit","Draughts","Domino(card_game)","Fencing","Football","American_football","Beach_soccer","Footvolley","Futsal","Artistic_gymnastics", "Golf","American_handball","Brazilian_jiu-jitsu", 
-   "Judo","Kickboxing", "Javelin_throw","Hammer_throw", "Powerlifting", "Swimming_(sport)", "Paintball","Peteca", "Water_polo", "Arm_wrestling", "Dodgeball", "Rugby_football", "High_jump", "Long_jump","Snooker","Slacklining", "Sumo","Tennis", "Table_tennis","Dodgeball","Beach_volleyball", "Chess"]
+   this.nomeSport = ["Archery", "Sport_of_athletics","Badminton","Baseball","Basketball","Boxing","Tug_of_war","Capoeira","CrossFit","Draughts","Domino(card_game)","Fencing","Association_football","American_football","Beach_soccer","Footvolley","Futsal","Artistic_gymnastics", "Golf","American_handball","Brazilian_jiu-jitsu", 
+   "Judo","Kickboxing", "Javelin_throw","Hammer_throw", "Powerlifting", "Swimming", "Paintball","Peteca", "Water_polo", "Arm_wrestling", "Dodgeball", "Rugby_football", "High_jump", "Long_jump","Snooker","Slacklining", "Sumo","Tennis", "Table_tennis","Dodgeball","Beach_volleyball", "Chess"]
     
    this.indice = parseInt(id)-1;
    return this.nomeSport[this.indice];
@@ -29,8 +29,7 @@ export class DbpediaSparqlService {
 
   public getSparQL(query: string): Observable<any> {
     return this.http.get<any>(
-         'https://dbpedia.org/sparql',
-         
+         'https://dbpedia.org/sparql',      
       {
           headers: new HttpHeaders({'Content-type': 'application/json'}),
           params: new HttpParams({
