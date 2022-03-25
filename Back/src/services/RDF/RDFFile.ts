@@ -6,9 +6,10 @@ export function getRDFFile(events: Event[])
     
     const modelRdf = rdf.graph();
 
-    const myNS = 'http://localhost:4200/rdf/events/';
+    const myNS = 'http://localhost:3000/rdf/events/';
     const seNS = 'https://schema.org/SportsEvent#';
-    modelRdf.setPrefixForURI('esporte', seNS);
+    modelRdf.setPrefixForURI('Spo', seNS);
+    modelRdf.setPrefixForURI('eve', myNS);
 
     const RDF = rdf.Namespace('http://www.w3.org/1999/02/22-rdf-syntax-ns#');
     const RDFS = rdf.Namespace('http://www.w3.org/2000/01/rdf-schema#');
@@ -17,7 +18,7 @@ export function getRDFFile(events: Event[])
 
     const seType = rdf.sym(`${seNS}SportsEvent`);
     const seMaximumCapacity = rdf.sym(`${seNS}maximumAttendeeCapacity`);
-    const seSport = rdf.sym(`${seNS}sport`);
+    const myCurrentlyEnrolled = rdf.sym(`${myNS}currentlyEnrolled`);
     
     events.forEach((event) =>{
         const eventResource = rdf.sym(`${myNS}${event.id}`);
@@ -26,9 +27,11 @@ export function getRDFFile(events: Event[])
         modelRdf.add(eventResource, RDFS('label'), event.title);
         modelRdf.add(eventResource, SE('name'), event.title);
         modelRdf.add(eventResource, SE('location'), event.location);
+        modelRdf.add(eventResource, SE('eventSchedule'), event.dateOfTheEvent.toDateString());
         
-        modelRdf.add(eventResource, SE('sport'), rdf.lit(`${event.sport.name}`, '', sportNS));
+        modelRdf.add(eventResource, SE('sport'),  rdf.lit(`${event.sport.name}`, '', sportNS));
         modelRdf.add(eventResource, seMaximumCapacity, rdf.lit(`${event.maximumNumberOfParticipants}`, '', XSD('integer')));
+        modelRdf.add(eventResource, myCurrentlyEnrolled, rdf.lit(`${event.currentlyEnrolled}`, '', XSD('integer')));
     });
 
     const allStatements = modelRdf.statementsMatching();
