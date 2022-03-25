@@ -11,8 +11,8 @@ const routes = Router();
 
 routes.use("/users", userRoute);
 routes.use("/students", ensureAuthenticated, studentRoute);
-routes.use("/sports", sportRoute);
-routes.use("/events",  eventRoute);
+routes.use("/sports", ensureAuthenticated, sportRoute);
+routes.use("/events", ensureAuthenticated, eventRoute);
 routes.use("/eventhasstudents", ensureAuthenticated, eventHasStudents);
 routes.use("/rdf", rdfRoute);
 
