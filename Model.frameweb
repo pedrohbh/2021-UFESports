@@ -49,5 +49,16 @@
       </packagedElement>
     </packagedElement>
     <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.1/app%2Fcomponents%2Fheader/header" supplier="//@compose.1/app%2Fcomponents%2Fheader.1/header" method="//@compose.1/app%2Fcomponents%2Fheader.1/header/thankYou"/>
+    <packagedElement xsi:type="frameweb:ViewPackage" name="app/pages/config/sport">
+      <packagedElement xsi:type="frameweb:Partial" name="sport">
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="table">
+          <type xsi:type="frameweb:Tag" href="frameweb/jbutler/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/table"/>
+        </ownedAttribute>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xsi:type="frameweb:ControllerPackage" name="app/pages/config/sport">
+      <packagedElement xsi:type="frameweb:FrontControllerClass" name="sport"/>
+    </packagedElement>
+    <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.1/app%2Fpages%2Fconfig%2Fsport/sport" supplier="//@compose.1/app%2Fpages%2Fconfig%2Fsport.1/sport"/>
   </compose>
 </frameweb:FramewebProject>
