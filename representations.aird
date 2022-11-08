@@ -18,7 +18,7 @@
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/br.ufes.inf.nemo.FrameWeb_Martins2015.design/description/FrameWeb.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='FrameWebEntityModel']"/>
         <target xmi:type="frameweb:EntityModel" href="Model.frameweb#//@compose.0"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_iZ5RIF7hEe2GD9CN28aNLg" name="FrameWebNavigationModel" repPath="#_iZ204F7hEe2GD9CN28aNLg" changeId="8187c63c-270b-4f05-895d-79b89c9bba53">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_iZ5RIF7hEe2GD9CN28aNLg" name="FrameWebNavigationModel" repPath="#_iZ204F7hEe2GD9CN28aNLg" changeId="7e8fe94b-1bc8-4c59-aa4b-fb1a542b473a">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/br.ufes.inf.nemo.FrameWeb_Martins2015.design/description/FrameWeb.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='FrameWebNavigationModel']"/>
         <target xmi:type="frameweb:NavigationModel" href="Model.frameweb#//@compose.1"/>
       </ownedRepresentationDescriptors>
@@ -535,17 +535,17 @@
         </edges>
         <edges xmi:type="notation:Edge" xmi:id="_1zZlwF-MEe2W2ulDf_FRnQ" type="4001" element="_1y_9LF-MEe2W2ulDf_FRnQ" source="_N6CoIF7pEe2GD9CN28aNLg" target="_BpQ9kF7qEe2GD9CN28aNLg">
           <children xmi:type="notation:Node" xmi:id="_1zZlxF-MEe2W2ulDf_FRnQ" type="6001">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1zZlxV-MEe2W2ulDf_FRnQ" x="18" y="-10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1zZlxV-MEe2W2ulDf_FRnQ" x="30" y="-10"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_1zZlxl-MEe2W2ulDf_FRnQ" type="6002">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1zZlx1-MEe2W2ulDf_FRnQ" x="82" y="10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1zZlx1-MEe2W2ulDf_FRnQ" x="103" y="10"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_1zZlyF-MEe2W2ulDf_FRnQ" type="6003">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1zaM0F-MEe2W2ulDf_FRnQ" x="-117" y="10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1zaM0F-MEe2W2ulDf_FRnQ" x="-113" y="10"/>
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_1zZlwV-MEe2W2ulDf_FRnQ" routing="Rectilinear"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_1zZlwl-MEe2W2ulDf_FRnQ" fontName="Ubuntu" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_1zZlw1-MEe2W2ulDf_FRnQ" points="[-77, 41, -431, 86]$[-77, 80, -431, 125]$[450, 80, 96, 125]$[450, 26, 96, 71]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_1zZlw1-MEe2W2ulDf_FRnQ" points="[-101, 41, -455, 86]$[-101, 80, -455, 125]$[450, 80, 96, 125]$[450, 26, 96, 71]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_1zaM0V-MEe2W2ulDf_FRnQ" id="(1.0,0.646551724137931)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_1zaM0l-MEe2W2ulDf_FRnQ" id="(0.0,0.1744186046511628)"/>
         </edges>
@@ -767,9 +767,9 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/br.ufes.inf.nemo.FrameWeb_Martins2015.design/description/FrameWeb.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='FrameWebNavigationModel']/@defaultLayer/@containerMappings[name='View%20Package']/@subContainerMappings[name='Partial%20Node']/@subNodeMappings[name='UI%20Component%20Field%20Node']"/>
         </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" uid="_Mxa2IF-MEe2W2ulDf_FRnQ" name=" + matIcon : External Component">
-          <target xmi:type="frameweb:UIComponentField" href="Model.frameweb#//@compose.1/app%2Fpages%2Fconfig%2Fsport/sport/matIcon"/>
-          <semanticElements xmi:type="frameweb:UIComponentField" href="Model.frameweb#//@compose.1/app%2Fpages%2Fconfig%2Fsport/sport/matIcon"/>
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_Mxa2IF-MEe2W2ulDf_FRnQ" name=" + mat-icon : External Component">
+          <target xmi:type="frameweb:UIComponentField" href="Model.frameweb#//@compose.1/app%2Fpages%2Fconfig%2Fsport/sport/mat-icon"/>
+          <semanticElements xmi:type="frameweb:UIComponentField" href="Model.frameweb#//@compose.1/app%2Fpages%2Fconfig%2Fsport/sport/mat-icon"/>
           <ownedStyle xmi:type="diagram:Dot" uid="_Mxa2IV-MEe2W2ulDf_FRnQ" showIcon="false" labelAlignment="LEFT" labelPosition="node">
             <description xmi:type="style:DotDescription" href="platform:/plugin/br.ufes.inf.nemo.FrameWeb_Martins2015.design/description/FrameWeb.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='FrameWebNavigationModel']/@defaultLayer/@containerMappings[name='View%20Package']/@subContainerMappings[name='Partial%20Node']/@subNodeMappings[name='UI%20Component%20Field%20Node']/@style"/>
           </ownedStyle>
