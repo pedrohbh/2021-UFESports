@@ -54,11 +54,18 @@
         <ownedAttribute xsi:type="frameweb:UIComponentField" name="table">
           <type xsi:type="frameweb:Tag" href="frameweb/jbutler/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/table"/>
         </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:NavigationCompositionWhole" type="//@compose.1/app%2Fpages%2Fconfig%2Fsport/sportForm" association="//@compose.1/app%2Fpages%2Fconfig%2Fsport/@packagedElement.2"/>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:UIComponent" name="sportForm"/>
+      <packagedElement xsi:type="frameweb:NavigationAssociation" memberEnd="//@compose.1/app%2Fpages%2Fconfig%2Fsport/@packagedElement.2/@ownedEnd.0 //@compose.1/app%2Fpages%2Fconfig%2Fsport/sport/@ownedAttribute.1">
+        <ownedEnd xsi:type="frameweb:NavigationCompositionPart" type="//@compose.1/app%2Fpages%2Fconfig%2Fsport/sport" association="//@compose.1/app%2Fpages%2Fconfig%2Fsport/@packagedElement.2"/>
       </packagedElement>
     </packagedElement>
     <packagedElement xsi:type="frameweb:ControllerPackage" name="app/pages/config/sport">
-      <packagedElement xsi:type="frameweb:FrontControllerClass" name="sport"/>
+      <packagedElement xsi:type="frameweb:FrontControllerClass" name="sport">
+        <ownedOperation xsi:type="frameweb:FrontControllerMethod" name="save"/>
+      </packagedElement>
     </packagedElement>
-    <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.1/app%2Fpages%2Fconfig%2Fsport/sport" supplier="//@compose.1/app%2Fpages%2Fconfig%2Fsport.1/sport"/>
+    <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.1/app%2Fpages%2Fconfig%2Fsport/sportForm" supplier="//@compose.1/app%2Fpages%2Fconfig%2Fsport.1/sport" method="//@compose.1/app%2Fpages%2Fconfig%2Fsport.1/sport/save"/>
   </compose>
 </frameweb:FramewebProject>
