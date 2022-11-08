@@ -55,6 +55,12 @@
           <type xsi:type="frameweb:Tag" href="frameweb/jbutler/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/table"/>
         </ownedAttribute>
         <ownedAttribute xsi:type="frameweb:NavigationCompositionWhole" type="//@compose.1/app%2Fpages%2Fconfig%2Fsport/sportForm" association="//@compose.1/app%2Fpages%2Fconfig%2Fsport/@packagedElement.2"/>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="sport.name">
+          <type xsi:type="frameweb:Tag" href="frameweb/jbutler/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/p"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="matIcon">
+          <type xsi:type="frameweb:Tag" href="frameweb/jbutler/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
+        </ownedAttribute>
       </packagedElement>
       <packagedElement xsi:type="frameweb:UIComponent" name="sportForm">
         <ownedAttribute xsi:type="frameweb:UIComponentField" name="mat-form-field">
@@ -73,11 +79,22 @@
     </packagedElement>
     <packagedElement xsi:type="frameweb:ControllerPackage" name="app/pages/config/sport">
       <packagedElement xsi:type="frameweb:FrontControllerClass" name="sport">
+        <ownedAttribute xsi:type="frameweb:IOParameter" name="sports">
+          <type xsi:type="uml:Class" href="frameweb/Java.frameweb#//@compose.0/List"/>
+        </ownedAttribute>
         <ownedOperation xsi:type="frameweb:FrontControllerMethod" name="save"/>
         <ownedOperation xsi:type="frameweb:FrontControllerMethod" name="handleNewSport"/>
+        <ownedOperation xsi:type="frameweb:FrontControllerMethod" name="cancelNewSport"/>
+        <ownedOperation xsi:type="frameweb:FrontControllerMethod" name="deleteSport">
+          <ownedParameter name="id">
+            <type xsi:type="uml:Class" href="frameweb/Java.frameweb#//@compose.0/String"/>
+          </ownedParameter>
+        </ownedOperation>
       </packagedElement>
     </packagedElement>
     <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.1/app%2Fpages%2Fconfig%2Fsport/sportForm" supplier="//@compose.1/app%2Fpages%2Fconfig%2Fsport.1/sport" method="//@compose.1/app%2Fpages%2Fconfig%2Fsport.1/sport/save"/>
     <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.1/app%2Fpages%2Fconfig%2Fsport/sport" supplier="//@compose.1/app%2Fpages%2Fconfig%2Fsport.1/sport" method="//@compose.1/app%2Fpages%2Fconfig%2Fsport.1/sport/handleNewSport"/>
+    <packagedElement xsi:type="frameweb:FrontControllerDependency" name="" client="//@compose.1/app%2Fpages%2Fconfig%2Fsport/sport" supplier="//@compose.1/app%2Fpages%2Fconfig%2Fsport.1/sport" method="//@compose.1/app%2Fpages%2Fconfig%2Fsport.1/sport/deleteSport"/>
+    <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.1/app%2Fpages%2Fconfig%2Fsport/sportForm" supplier="//@compose.1/app%2Fpages%2Fconfig%2Fsport.1/sport" method="//@compose.1/app%2Fpages%2Fconfig%2Fsport.1/sport/cancelNewSport"/>
   </compose>
 </frameweb:FramewebProject>
