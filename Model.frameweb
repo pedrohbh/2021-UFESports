@@ -131,5 +131,21 @@
       </packagedElement>
     </packagedElement>
     <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.1/app%2Fpages%2Fconfig%2Fstudent/student" supplier="//@compose.1/app%2Fpages%2Fconfig%2Fstudent.1/student" method="//@compose.1/app%2Fpages%2Fconfig%2Fstudent.1/student/deleteStudent"/>
+    <packagedElement xsi:type="frameweb:ViewPackage" name="app/pages/config">
+      <packagedElement xsi:type="frameweb:Partial" name="config">
+        <ownedAttribute xsi:type="frameweb:NavigationAggregationTarget" type="//@compose.1/app%2Fpages%2Fconfig%2Fstudent/student" association="//@compose.1/app%2Fpages%2Fconfig/@packagedElement.1"/>
+        <ownedAttribute xsi:type="frameweb:NavigationAggregationTarget" type="//@compose.1/app%2Fpages%2Fconfig%2Fsport/sport" association="//@compose.1/app%2Fpages%2Fconfig/@packagedElement.2"/>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:NavigationAggregationAssociation" memberEnd="//@compose.1/app%2Fpages%2Fconfig/@packagedElement.1/@ownedEnd.0 //@compose.1/app%2Fpages%2Fconfig/config/@ownedAttribute.0">
+        <ownedEnd xsi:type="frameweb:NavigationAggregationSource" type="//@compose.1/app%2Fpages%2Fconfig/config" association="//@compose.1/app%2Fpages%2Fconfig/@packagedElement.1"/>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:NavigationAggregationAssociation" memberEnd="//@compose.1/app%2Fpages%2Fconfig/@packagedElement.2/@ownedEnd.0 //@compose.1/app%2Fpages%2Fconfig/config/@ownedAttribute.1">
+        <ownedEnd xsi:type="frameweb:NavigationAggregationSource" type="//@compose.1/app%2Fpages%2Fconfig/config" association="//@compose.1/app%2Fpages%2Fconfig/@packagedElement.2"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xsi:type="frameweb:ControllerPackage" name="app/pages/config">
+      <packagedElement xsi:type="frameweb:FrontControllerClass" name="config"/>
+    </packagedElement>
+    <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.1/app%2Fpages%2Fconfig/config" supplier="//@compose.1/app%2Fpages%2Fconfig.1/config"/>
   </compose>
 </frameweb:FramewebProject>
