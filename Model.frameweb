@@ -359,5 +359,52 @@
     <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.1/app%2Fpages%2Fshowevent/showevent" supplier="//@compose.1/app%2Fpages%2Fshowevent.1/showevent" method="//@compose.1/app%2Fpages%2Fshowevent.1/showevent/unsubscrible"/>
     <packagedElement xsi:type="frameweb:FrontControllerDependency" name="" client="//@compose.1/app%2Fpages%2Fshowevent/showevent" supplier="//@compose.1/app%2Fpages%2Fshowevent.1/showevent" method="//@compose.1/app%2Fpages%2Fshowevent.1/showevent/subscribe"/>
     <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.1/app%2Fpages%2Fshowevent/showevent" supplier="//@compose.1/app%2Fpages%2Fshowevent.1/showevent" method="//@compose.1/app%2Fpages%2Fshowevent.1/showevent/deleteEvent"/>
+    <packagedElement xsi:type="frameweb:ViewPackage" name="app/pages/signup">
+      <packagedElement xsi:type="frameweb:Partial" name="signup">
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="mat-card">
+          <type xsi:type="frameweb:Tag" href="frameweb/jbutler/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:NavigationCompositionWhole" type="//@compose.1/app%2Fpages%2Flogin/loginForm"/>
+        <ownedAttribute xsi:type="frameweb:NavigationCompositionWhole" type="//@compose.1/app%2Fpages%2Fsignup/loginForm" association="//@compose.1/app%2Fpages%2Fsignup/@packagedElement.2"/>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:UIComponent" name="loginForm">
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="mat-card-header">
+          <type xsi:type="frameweb:Tag" href="frameweb/jbutler/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="mat-card-title">
+          <type xsi:type="frameweb:Tag" href="frameweb/jbutler/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="mat-input">
+          <type xsi:type="frameweb:Tag" href="frameweb/jbutler/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="mat-form-field">
+          <type xsi:type="frameweb:Tag" href="frameweb/jbutler/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="mat-hint">
+          <type xsi:type="frameweb:Tag" href="frameweb/jbutler/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="mat-hint">
+          <type xsi:type="frameweb:Tag" href="frameweb/jbutler/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="mat-form-field">
+          <type xsi:type="frameweb:Tag" href="frameweb/jbutler/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="mat-input">
+          <type xsi:type="frameweb:Tag" href="frameweb/jbutler/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="mat-hint">
+          <type xsi:type="frameweb:Tag" href="frameweb/jbutler/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:NavigationAssociation" memberEnd="//@compose.1/app%2Fpages%2Fsignup/@packagedElement.2/@ownedEnd.0 //@compose.1/app%2Fpages%2Fsignup/signup/@ownedAttribute.2">
+        <ownedEnd xsi:type="frameweb:NavigationCompositionPart" type="//@compose.1/app%2Fpages%2Fsignup/signup" association="//@compose.1/app%2Fpages%2Fsignup/@packagedElement.2"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xsi:type="frameweb:ControllerPackage" name="app/pages/signup">
+      <packagedElement xsi:type="frameweb:FrontControllerClass" name="signup">
+        <ownedOperation xsi:type="frameweb:FrontControllerMethod" name="onSubmit"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.1/app%2Fpages%2Fsignup/loginForm" supplier="//@compose.1/app%2Fpages%2Fsignup.1/signup" method="//@compose.1/app%2Fpages%2Fsignup.1/signup/onSubmit"/>
   </compose>
 </frameweb:FramewebProject>
