@@ -271,5 +271,40 @@
       </packagedElement>
     </packagedElement>
     <packagedElement xsi:type="frameweb:FrontControllerDependency" name="" client="//@compose.1/app%2Fpages%2Flogin/loginForm" supplier="//@compose.1/app%2Fpages%2Flogin.1/login" method="//@compose.1/app%2Fpages%2Flogin.1/login/onSubmit"/>
+    <packagedElement xsi:type="frameweb:ViewPackage" name="app/pages/myevent">
+      <packagedElement xsi:type="frameweb:Partial" name="myevent">
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="event.title">
+          <type xsi:type="frameweb:Tag" href="frameweb/jbutler/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/h4"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="event.location">
+          <type xsi:type="frameweb:Tag" href="frameweb/jbutler/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/p"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="event.maximumNumberOfParticipants">
+          <type xsi:type="frameweb:Tag" href="frameweb/jbutler/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/p"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="event.currentlyEnrolled">
+          <type xsi:type="frameweb:Tag" href="frameweb/jbutler/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/p"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="event.dateOfTheEvent">
+          <type xsi:type="frameweb:Tag" href="frameweb/jbutler/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/p"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="descricaoesport">
+          <type xsi:type="frameweb:Tag" href="frameweb/jbutler/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/p"/>
+        </ownedAttribute>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xsi:type="frameweb:ControllerPackage" name="app/pages/myevent">
+      <packagedElement xsi:type="frameweb:FrontControllerClass" name="home">
+        <ownedAttribute xsi:type="frameweb:IOParameter" name="event">
+          <type xsi:type="uml:Class" href="frameweb/Java.frameweb#//@compose.0/Object"/>
+        </ownedAttribute>
+        <ownedOperation xsi:type="frameweb:FrontControllerMethod" name="unsubscrible">
+          <ownedParameter name="event">
+            <type xsi:type="uml:Class" href="frameweb/Java.frameweb#//@compose.0/Object"/>
+          </ownedParameter>
+        </ownedOperation>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.1/app%2Fpages%2Fmyevent/myevent" supplier="//@compose.1/app%2Fpages%2Fmyevent.1/home" method="//@compose.1/app%2Fpages%2Fmyevent.1/home/unsubscrible"/>
   </compose>
 </frameweb:FramewebProject>
