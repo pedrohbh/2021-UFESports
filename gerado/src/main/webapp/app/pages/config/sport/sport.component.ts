@@ -12,7 +12,7 @@ import { Component, OnInit } from '@angular/core';
 			</table><p id="sport.name">{{ sport.name }}</p><mat-icon ></mat-icon>
    
    <form>
-   <mat-form-field id="mat-form-field" value="mat-form-field" /><matInput id="matInput" value="matInput" /><mat-hint id="mat-hint" value="mat-hint" />
+   <mat-form-field  value="mat-form-field" /><matInput  value="matInput" /><mat-hint  value="mat-hint" />
 	
 	
 	<button (click)="save">save</button>

@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   template: `<mat-card ></mat-card><mat-card ></mat-card><p id="descricaosport">{{ descricaosport }}</p>
    
    <form>
-   <mat-card-header id="mat-card-header" value="mat-card-header" /><mat-card-title id="mat-card-title" value="mat-card-title" /><mat-form-field id="mat-form-field" value="mat-form-field" /><mat-input id="mat-input" value="mat-input" /><mat-form-field id="mat-form-field" value="mat-form-field" /><mat-input id="mat-input" value="mat-input" /><mat-form-field id="mat-form-field" value="mat-form-field" /><mat-input id="mat-input" value="mat-input" /><mat-form-field id="mat-form-field" value="mat-form-field" /><mat-input id="mat-input" value="mat-input" />
+   <mat-card-header  value="mat-card-header" /><mat-card-title  value="mat-card-title" /><mat-form-field  value="mat-form-field" /><mat-input  value="mat-input" /><mat-form-field  value="mat-form-field" /><mat-input  value="mat-input" /><mat-form-field  value="mat-form-field" /><mat-input  value="mat-input" /><mat-form-field  value="mat-form-field" /><mat-input  value="mat-input" />
 	
 	
 	<button (click)="onSubmit">onSubmit</button>
