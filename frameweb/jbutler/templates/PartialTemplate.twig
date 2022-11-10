@@ -51,10 +51,28 @@ import { Component, OnInit } from '@angular/core';
         	{%- endfor -%}
         {%- endfor -%}
 		{% for attribute in form.Attributes %}
-			{%- if attribute.Type.Name == "input[text]" -%}{%- set tag = 'input type="text"' -%}
-			{%- elseif attribute.Type.Name == "outputLink" -%}{%- set tag = "h:outputLink" -%}
+			{%- if attribute.Type.Name == "span" -%}{%- set tag = "span" -%}
+			{%- elseif attribute.Type.Name == "p" -%}{%- set tag = "p" -%}
+			{%- elseif attribute.Type.Name == "h1" -%}{%- set tag = "h1" -%}
+			{%- elseif attribute.Type.Name == "outputText" -%}{%- set tag = "h:outputText" -%}
+			{%- elseif attribute.Type.Name == "panelGroup" -%}{%- set tag = "h:panelGroup" -%}
+			{%- elseif attribute.Type.Name == "selectManyListbox" -%}{%- set tag = "h:selectManyListbox" -%}
+			{%- elseif attribute.Type.Name == "a" -%}{%- set tag = "a" -%}{%- set complementoTag = "href={" ~ attribute.Name ~ "}" -%}{%- set temAtributoNome = false -%}
+			{%- elseif attribute.Type.Name == "img" -%}{%- set tag = "img"  -%}{%- set complementoTag = "src={" ~ attribute.Name ~ "}" -%}{%- set temAtributoNome = false -%}
+			{%- elseif attribute.Type.Name == "External Component" -%}{%- set tag = attribute.Name -%}{%- set complementoTag = "" -%}{%- set temAtributoNome = false -%}
 			{%- else -%}{%- set tag = attribute.Type.Name -%}{%- endif -%}
-			<{{ tag }} id="{{ attribute.Name }}" value={{ left }} this.state.{{ attribute.Name }} {{ right }} />
+			{%- if tag == "table" -%}
+			<table>
+				<tr>
+					<th>{{ left }} {{ attribute.Name }} {{ right }}</th>
+				</tr>
+				<tr>
+					<td>{{ left }} {{ attribute.Name }} {{ right }}</td>
+				</tr>
+			</table>
+			{%- else -%}
+			<{{ tag }} id="{{ attribute.Name }}" value="{{ attribute.Name }}" />
+			{%- endif -%}
 		{% endfor %}
 	{% if partialProperties.get("hasMethodForm") %}
 	{% for metodoInvocado in partialProperties.get("invocatedMethodsNames") %}
