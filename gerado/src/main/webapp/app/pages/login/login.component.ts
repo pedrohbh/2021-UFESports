@@ -5,16 +5,7 @@ import { Component, OnInit } from '@angular/core';
   template: `<mat-card ></mat-card>
    
    <form>
-   <External Component id="mat-card-header" value={{ this.state.mat-card-header }} />
-		<External Component id="mat-card-title" value={{ this.state.mat-card-title }} />
-		<External Component id="mat-input" value={{ this.state.mat-input }} />
-		<External Component id="mat-form-field" value={{ this.state.mat-form-field }} />
-		<External Component id="mat-hint" value={{ this.state.mat-hint }} />
-		<External Component id="mat-hint" value={{ this.state.mat-hint }} />
-		<External Component id="mat-form-field" value={{ this.state.mat-form-field }} />
-		<External Component id="mat-input" value={{ this.state.mat-input }} />
-		<External Component id="mat-hint" value={{ this.state.mat-hint }} />
-		
+   <mat-card-header id="mat-card-header" value="mat-card-header" /><mat-card-title id="mat-card-title" value="mat-card-title" /><mat-input id="mat-input" value="mat-input" /><mat-form-field id="mat-form-field" value="mat-form-field" /><mat-hint id="mat-hint" value="mat-hint" /><mat-hint id="mat-hint" value="mat-hint" /><mat-form-field id="mat-form-field" value="mat-form-field" /><mat-input id="mat-input" value="mat-input" /><mat-hint id="mat-hint" value="mat-hint" />
 	
 	
 	<button (click)="onSubmit">onSubmit</button>

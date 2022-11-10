@@ -12,10 +12,7 @@ import { Component, OnInit } from '@angular/core';
 			</table><p id="sport.name">{{ sport.name }}</p><mat-icon ></mat-icon>
    
    <form>
-   <External Component id="mat-form-field" value={{ this.state.mat-form-field }} />
-		<External Component id="matInput" value={{ this.state.matInput }} />
-		<External Component id="mat-hint" value={{ this.state.mat-hint }} />
-		
+   <mat-form-field id="mat-form-field" value="mat-form-field" /><matInput id="matInput" value="matInput" /><mat-hint id="mat-hint" value="mat-hint" />
 	
 	
 	<button (click)="save">save</button>

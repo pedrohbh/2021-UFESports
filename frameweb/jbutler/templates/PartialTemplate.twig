@@ -51,6 +51,8 @@ import { Component, OnInit } from '@angular/core';
         	{%- endfor -%}
         {%- endfor -%}
 		{% for attribute in form.Attributes %}
+			{%- set complementoTag = "id=\"" ~  attribute.Name ~ "\"" -%}
+			{%- set temAtributoNome = true -%}
 			{%- if attribute.Type.Name == "span" -%}{%- set tag = "span" -%}
 			{%- elseif attribute.Type.Name == "p" -%}{%- set tag = "p" -%}
 			{%- elseif attribute.Type.Name == "h1" -%}{%- set tag = "h1" -%}
@@ -71,7 +73,7 @@ import { Component, OnInit } from '@angular/core';
 				</tr>
 			</table>
 			{%- else -%}
-			<{{ tag }} id="{{ attribute.Name }}" value="{{ attribute.Name }}" />
+			<{{ tag }} {{complementoTag}} value="{{ attribute.Name }}" />
 			{%- endif -%}
 		{% endfor %}
 	{% if partialProperties.get("hasMethodForm") %}
