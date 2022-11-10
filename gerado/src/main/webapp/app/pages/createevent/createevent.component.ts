@@ -1,24 +1,8 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import { Component, OnInit } from '@angular/core';
 
-class createevent extends React.Component
-{
-	constructor(props)
-	{
-		super(props);		
-		this.state = {descricaosport : ""};		
-	}
-
-	
-	onSubmit() 
-	{
-		//TODO To be implemented
-	}
-	
-	
-	render() {  
-      return (
-        <div><mat-card ></mat-card><mat-card ></mat-card><p id="descricaosport">{{ descricaosport }}</p>
+@Component({
+  selector: 'createevent',
+  template: `<mat-card ></mat-card><mat-card ></mat-card><p id="descricaosport">{{ descricaosport }}</p>
    
    <form>
    <External Component id="mat-card-header" value={{ this.state.mat-card-header }} />
@@ -34,11 +18,20 @@ class createevent extends React.Component
 		
 	
 	
-	<button onClick="onSubmit">onSubmit</button>
+	<button (click)="onSubmit">onSubmit</button>
 	
-	</form></div>
-      );
-    }
-  }
+	</form>`
+})
+export class createevent implements OnInit
+{this.state = {descricaosport : "";
+		constructor() { }
 
+  ngOnInit(): void 
+  {
+  }
+	onSubmit() : void 
+	{
+		//TODO To be implemented
+	}
+    
 }

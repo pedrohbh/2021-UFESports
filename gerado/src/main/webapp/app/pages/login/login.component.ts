@@ -1,18 +1,8 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import { Component, OnInit } from '@angular/core';
 
-export default function signup(props) {
-
-	
-	onSubmit() 
-	{
-		//TODO To be implemented
-	}
-	
-	
-	render() {  
-      return (
-        <div><mat-card ></mat-card>
+@Component({
+  selector: 'login',
+  template: `<mat-card ></mat-card>
    
    <form>
    <External Component id="mat-card-header" value={{ this.state.mat-card-header }} />
@@ -27,11 +17,19 @@ export default function signup(props) {
 		
 	
 	
-	<button onClick="onSubmit">onSubmit</button>
+	<button (click)="onSubmit">onSubmit</button>
 	
-	</form></div>
-      );
-    }
-  }
+	</form>`
+})
+export class login implements OnInit
+{constructor() { }
 
+  ngOnInit(): void 
+  {
+  }
+	onSubmit() : void 
+	{
+		//TODO To be implemented
+	}
+    
 }
